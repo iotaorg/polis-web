@@ -8,7 +8,7 @@
 
 <?php $this->begin('content');?>
 
-<section class="home acao-home">
+<section class="home acao-home acao-eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>">
     <div class="container">
         <div class="acao-header-title-wrap">
             <header class="acao-header-title">
@@ -33,7 +33,7 @@
             <div class="col-lg-12 col-md-12">
             <div class="embed-responsive embed-responsive-3by4">
             <div class="embed-responsive embed-responsive-3by4">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1pgrg0apPDFYKWwHMKH0_kvnAr7w" class="embed-responsive-item" width="100%" height="350"></iframe>
+            mapa lento vinha aqui...
             </div>
             </div>
             </div>
@@ -46,10 +46,8 @@
             <div aria-multiselectable="true" class="panel-group" id="accordion-acao" role="tablist">
                 <?php foreach ( array (
                     "txt_info_qualitativas" => 'Informações qualitativas',
-                    "txt_condicionantes"=> 'Condicionantes ambientais',
-                    "txt_focos"=> "Focos e Perguntas Orientadoras",
-                    "txt_titulo_mapa"=> "Título do mapa",
-
+                    "txt_condicionantes"    => 'Condicionantes ambientais',
+                    "txt_focos"             => "Focos e Perguntas Orientadoras",
                 ) as $key => $value ): if ( $acao->text_content->$key == '' ) continue ?>
                     <div class="panel panel-default">
                         <div class="panel-heading" id="headingOne" role="tab">

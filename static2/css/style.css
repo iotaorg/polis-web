@@ -178,6 +178,7 @@ section p{
 	background-image: url("images/header_full.jpg");
 	background-repeat: no-repeat;
 	background-position: bottom center;
+    background-size: cover;
 }
 
 .home h2{
@@ -293,3 +294,7 @@ footer .logo-footer img{
 		margin-top: 0;
 	}
 }
+
+.acao-eixo1 {background-image: url(/static2/images/cover/eixo1.jpg)}
+.acao-eixo2 {background-image: url(/static2/images/cover/eixo2.jpg)}
+.acao-eixo3 {background-image: url(/static2/images/cover/eixo3.jpg)}
