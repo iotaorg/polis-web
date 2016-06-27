@@ -19,7 +19,7 @@
     <link href="/static2/css/bootstrap-social.css" rel="stylesheet">
 
 
-    <link href="/static2/css/style.css?v=2" rel="stylesheet">
+    <link href="/static2/css/style.css?v=3" rel="stylesheet">
     <link href="/static2/css/home_style.css?v=2" rel="stylesheet">
 
     <!-- Custom Favicon -->
