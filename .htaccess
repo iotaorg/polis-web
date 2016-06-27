@@ -1,0 +1,22 @@
+
+
+<IfModule mod_mime.c>
+  AddType application/font-woff woff
+  AddType application/font-woff2 woff2
+  AddType application/vnd.ms-fontobject eot
+  AddType application/x-font-ttf ttc ttf
+  AddType font/opentype otf
+</IfModule>
+
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  IndexIgnore *
+
+  RewriteEngine on
+
+  RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} !-f
+  #RewriteRule ^(.*) index.php/$1 [L]
+  RewriteRule ^(.*)$ index.php [NC,L]
+</IfModule>
