@@ -12,7 +12,7 @@
     <section class="home text-center">
         <div class="container">
             <div class="col-sm-12">
-                <div class="home-logo-wraper hidden-xs"><img src="/static/css/images/logo-monitoramento-branco.svg?v=1"></div>
+                <div class="home-logo-wraper hidden-xs"><img src="/static2/css/images/logo-monitoramento-branco.svg?v=1"></div>
 
             </div><!-- div.col-sm-12-->
             <div class="eixos-wrap col-lg-12 col-md-12 col-sm-12">
@@ -20,7 +20,7 @@
                             <div class="eixo-esq">
                                 <div class="faixa-b"></div>
                             </div>
-                            <div class="eixo-centr"><img src="/static/css/images/icone-eixo1.png"></div>
+                            <div class="eixo-centr"><img src="/static2/css/images/icone-eixo1.png"></div>
                             <div class="eixo-dir">
                                 <div class="faixa-b"></div>
                             </div>
@@ -33,7 +33,7 @@
                         <div class="eixo-esq">
                             <div class="faixa-b"></div>
                         </div>
-                        <div class="eixo-centr"><img src="/static/css/images/icone-eixo2.png"></div>
+                        <div class="eixo-centr"><img src="/static2/css/images/icone-eixo2.png"></div>
                         <div class="eixo-dir">
                             <div class="faixa-b"></div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="eixo-esq">
                             <div class="faixa-b"></div>
                         </div>
-                        <div class="eixo-centr"><img src="/static/css/images/icone-eixo3.png"></div>
+                        <div class="eixo-centr"><img src="/static2/css/images/icone-eixo3.png"></div>
                         <div class="eixo-dir">
                             <div class="faixa-b"></div>
                         </div>
@@ -96,7 +96,7 @@
                             <div style="position:relative">
                                 <div class="acao-txt-wrap">
                                     <div class="row">
-                                        <img src="/static/images/eixo<?= preg_replace('/[^0-9]*/', '', $a->axis_name)?>.png" class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                                        <img src="/static2/images/eixo<?= preg_replace('/[^0-9]*/', '', $a->axis_name)?>.png" class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
                                         <span class="col-lg-9 col-md-8 col-sm-8 col-xs-8 acao-txt"><?= $a->name?></span>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
 
             </div>
             <section class="acoes-footer">
-                <img src="/static/css/images/fundo-content-bottom.png">
+                <img src="/static2/css/images/fundo-content-bottom.png">
             </section>
     </section>
 

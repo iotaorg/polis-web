@@ -12,7 +12,7 @@
     <div class="container">
         <div class="acao-header-title-wrap">
             <header class="acao-header-title">
-                <img src="/static/images/eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>.png" alt="Icone para <?= $acao->axis_name ?>">
+                <img src="/static2/images/eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>.png" alt="Icone para <?= $acao->axis_name ?>">
                 <?=$acao->name?>
             </header>
             <div class="acao-header-txt">

@@ -144,7 +144,7 @@ h2{
 	overflow: hidden;
 	width: 36px;
 	height: 36px;
-	background-image: url("/static/images/social-icons.png");
+	background-image: url("/static2/images/social-icons.png");
 	background-repeat: no-repeat;
 	background-position: 0 0;
 }*/
@@ -251,7 +251,7 @@ body {
 .signup{
 	background-color: #666056;
 	color: #fff;
-	background-image: url("/static/images/img_home.png");
+	background-image: url("/static2/images/img_home.png");
 	background-repeat: no-repeat;
 	background-position: bottom center;
 	padding-bottom: 370px;
@@ -377,7 +377,7 @@ footer .logo-appcivico{
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	background-position: center center;
-	background-image: url("/static/images/map.jpg");
+	background-image: url("/static2/images/map.jpg");
 }
 
 
@@ -494,7 +494,7 @@ section.map .map-overlay{
 #filter-map .item .icon{
 	width: 35px;
 	height: 35px;
-	background-image: url("/static/images/icons-map.png");
+	background-image: url("/static2/images/icons-map.png");
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	margin: 6px 20px;
@@ -551,7 +551,7 @@ section.map .map-overlay{
 .select-stylized{
 	position: relative;
 	background-color: #ffffff;
-	background-image: url("/static/css/images/dd_green.png");
+	background-image: url("/static2/css/images/dd_green.png");
 	background-repeat: no-repeat;
 	background-position: center right;
 	overflow: hidden;
@@ -630,25 +630,25 @@ select.select-stylized{
 }
 
 .filtro-indicadores.gold .select-stylized{
-	background-image: url("/static/css/images/dd_gold.png");
+	background-image: url("/static2/css/images/dd_gold.png");
 }
 .filtro-indicadores.yellow .select-stylized{
-	background-image: url("/static/css/images/dd_yellow.png");
+	background-image: url("/static2/css/images/dd_yellow.png");
 }
 .filtro-indicadores.blue .select-stylized{
-	background-image: url("/static/css/images/dd_blue.png");
+	background-image: url("/static2/css/images/dd_blue.png");
 }
 .filtro-indicadores.violet .select-stylized{
-	background-image: url("/static/css/images/dd_violet.png");
+	background-image: url("/static2/css/images/dd_violet.png");
 }
 .filtro-indicadores.green .select-stylized{
-	background-image: url("/static/css/images/dd_green.png");
+	background-image: url("/static2/css/images/dd_green.png");
 }
 .filtro-indicadores.navy .select-stylized{
-	background-image: url("/static/css/images/dd_navy.png");
+	background-image: url("/static2/css/images/dd_navy.png");
 }
 .filtro-indicadores.orange .select-stylized{
-	background-image: url("/static/css/images/dd_orange.png");
+	background-image: url("/static2/css/images/dd_orange.png");
 }
 
 .filtro-indicadores .select-stylized.disabled,
@@ -659,7 +659,7 @@ select.select-stylized{
 .filtro-indicadores.green .select-stylized.disabled,
 .filtro-indicadores.navy .select-stylized.disabled,
 .filtro-indicadores.orange .select-stylized.disabled{
-	background-image: url("/static/css/images/dd_disabled.png");
+	background-image: url("/static2/css/images/dd_disabled.png");
 }
 
 section.filtro-indicadores h2.title{
@@ -952,7 +952,7 @@ ul.list-arrow li:before{
 .list-types .icon {
 	width: 35px;
 	height: 35px;
-	background-image: url("/static/images/icons-map.png");
+	background-image: url("/static2/images/icons-map.png");
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	float: left;
@@ -1085,7 +1085,7 @@ footer .menu-footer li a:hover{
 .acoes-header:before {
     content: '';
     display: block;
-    background: url(/static/css/images/fundo-content-top.png);
+    background: url(/static2/css/images/fundo-content-top.png);
     width: 182px;
     height: 194px;
     float: right;
@@ -1193,17 +1193,17 @@ footer .menu-footer li a:hover{
 .social-share ul li{
 	float: left;
 	padding: 16px 15px 8px 15px;
-	background-image: url("/static/css/images/social-default.png");
+	background-image: url("/static2/css/images/social-default.png");
 	background-repeat: repeat-x;
 	background-position: top center;
 }
 .social-share ul li.active{
-	background-image: url("/static/css/images/social-active.png");
+	background-image: url("/static2/css/images/social-active.png");
 }
 .social-share ul li a{
 	width: 20px;
 	height: 20px;
-	background-image: url("/static/css/images/social-icons-share.png");
+	background-image: url("/static2/css/images/social-icons-share.png");
 	background-repeat: no-repeat;
 	text-indent: -999em;
 	display: inline-block;
