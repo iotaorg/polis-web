@@ -192,6 +192,9 @@ section p{
 	font-size: 18px;
 }
 
+.collapse-acao-cont .panel-heading{ padding: 0}
+.collapse-acao-cont a { display: block; padding: 10px}
+.collapse-acao-cont a:focus,.collapse-acao-cont a:hover,.collapse-acao-cont a:visited { text-decoration: none}
 .about h2{
 	color: #666056;
 }
