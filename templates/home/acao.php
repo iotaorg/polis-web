@@ -44,16 +44,16 @@
 
         <div class="acao-acordeon">
             <div aria-multiselectable="true" class="panel-group" id="accordion-acao" role="tablist">
-                <?php foreach ( array (
+                <?php $cont=0; foreach ( array (
                     "txt_info_qualitativas" => 'Informações qualitativas',
                     "txt_condicionantes"    => 'Condicionantes ambientais',
                     "txt_focos"             => "Focos e Perguntas Orientadoras",
-                ) as $key => $value ): if ( $acao->text_content->$key == '' ) continue ?>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" id="headingOne" role="tab">
-                            <h4 class="panel-title"><a aria-controls="collapseOne" aria-expanded="true" class="accordion-toggle collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" role="button"> <?=$value?> </a></h4>
+                ) as $key => $value ): $cont++; if ( @$acao->text_content->$key == '' ) continue ?>
+                    <div class="panel panel-default collapse-acao-cont">
+                        <div class="panel-heading" id="heading<?=$cont?>" role="tab">
+                            <h4 class="panel-title"><a aria-controls="collapse<?=$cont?>" class="accordion-toggle <?= $key == 'txt_info_qualitativas' ? '' : 'collapsed'?>" data-parent="#accordion" data-toggle="collapse" href="#collapse<?=$cont?>" role="button"> <?=$value?> </a></h4>
                         </div>
-                        <div aria-labelledby="headingOne" class="panel-collapse collapse-acao-cont " id="collapseOne" role="tabpanel"  >
+                        <div aria-labelledby="heading<?=$cont?>" class="panel-collapse collapse <?= $key == 'txt_info_qualitativas' ? 'in' : ''?>" id="collapse<?=$cont?>" role="tabpanel"  >
                             <div class="panel-body">
                             <?= $acao->text_content->$key?>
                             </div>
@@ -63,6 +63,14 @@
 
             </div>
         </div>
+
+
+        <? if ($acao->text_content->txt_glossario):?>
+        <h4>Glossário</h4>
+        <div class="acao-glosario-wrap">
+            <?=$acao->text_content->txt_glossario?>
+        </div>
+        <?endif?>
 
     </div>
 </div>

@@ -2092,7 +2092,7 @@ font-size: 20px;}
 
 .acao-header-title-wrap{border-radius: 10px; background-color: rgba(255,255,255,0.65); padding: 15px; color: #333}
 .acao-breadcumbs{padding: 15px 0}
-.acao-acordeon{padding: 50px 0}
+.acao-acordeon{padding: 20px 0}
 .acao-breadcumbs{padding: 40px 0}
 .acao-breadcumbs a{color: #666; font-weight: bold; text-decoration: underline;}
 .panel-heading .accordion-toggle:after {
@@ -2104,11 +2104,31 @@ font-size: 20px;}
   /* symbol for "collapsed" panels */
   content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
-.panel-group .panel{ border:none; margin: 20px}
-.panel-group .panel .panel-heading{border-radius: 10px!important; border: 1px solid #ddd}
+.panel-group .panel{ border:none; box-shadow: none}
+.panel-group .panel .panel-heading{border: 1px solid #ddd}
 .panel-default > .panel-heading + .panel-collapse .panel-body{border-top: none;}
 .palavra span, .letra{font-weight: bold}
-.acao-glosario-wrap{padding: 40px 0}
+.acao-glosario-wrap{
+    padding-bottom: 40px;
+
+     -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+
+    -webkit-column-rule: 4px outset #EEE; /* Chrome, Safari, Opera */
+    -moz-column-rule: 4px outset #EEE; /* Firefox */
+    column-rule: 4px outset #EEE;
+
+}
+.acao-glosario-wrap p.letra {
+    break-inside: avoid-column;
+    -webkit-column-break-inside: avoid;
+}
+
 .nav-tabs > li > a{border-radius: 10px 10px 0 0; border: 1px solid #ddd; margin-right: 15px}
 .acao-tab-indicadores-graf-pizza .tab-content, .acao-tab-indicadores-graf-linha .tab-content{padding: 15px; border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;}
 .acao-tab-indicadores-graf-linha, .acao-tab-indicadores-graf-pizza{padding: 20px 0}

@@ -19,8 +19,8 @@
     <link href="/static2/css/bootstrap-social.css" rel="stylesheet">
 
 
-    <link href="/static2/css/style.css?v=3" rel="stylesheet">
-    <link href="/static2/css/home_style.css?v=2" rel="stylesheet">
+    <link href="/static2/css/style.css?v=4" rel="stylesheet">
+    <link href="/static2/css/home_style.css?v=4" rel="stylesheet">
 
     <!-- Custom Favicon -->
     <link rel="icon" href="/static2/favicon.ico?v=1.1">
@@ -175,7 +175,13 @@
 
     <?php $this->block('footer');?>
 
+    <!-- Core JavaScript Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/static2/js/jquery.easing.1.3.js"></script>
+    <script src="/static2/js/bootstrap.min.js"></script>
+
     <!-- javascript -->
     <?php $this->block('scripts');?>
+
   </body>
 </html>
