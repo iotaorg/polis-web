@@ -11,7 +11,7 @@ use Ark\Template\Engine;
 // configuration
 $GLOBALS['TMPL_DIR'] = __DIR__ . '/templates';
 
-
+include __DIR__ . '/config.php';
 ini_set('display_errors', '1');     # don't show any errors...
 error_reporting(E_ALL | E_STRICT);  # ...but do log them
 /**
@@ -24,9 +24,16 @@ function curl_get_contents($url)
 
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_URL, 'http://172.17.0.3' . $url);
+    curl_setopt($ch, CURLOPT_VERBOSE, 1);
+    curl_setopt($ch, CURLOPT_URL, API_URL . $url);
 
     $data = curl_exec($ch);
+
+    if ($data===false){
+        echo(curl_error($ch));
+        exit;
+    }
+
     curl_close($ch);
 
     return $data;
@@ -49,15 +56,15 @@ class Polis {
 
     $r->get('acao/{id}', function($id){
         $acao =json_decode( curl_get_contents(  "/polis/acoes_item/$id"));
-
-            $acao->text_content = json_decode($acao->text_content);
-
-
-
-      echo self::render('/home/acao.php', [ 'acao' => $acao]);
+        $acao->text_content = json_decode($acao->text_content);
+        echo self::render('/home/acao.php', [ 'acao' => $acao]);
     });
 
 
+    $r->get('ajax/pesquisa-acao', function(){
+        echo(( curl_get_contents(  "/polis/acoes_search_get_ids?q=". urlencode( @$_GET['q']) )));
+        exit;
+    });
 
     // setting dispatcher
     $dispatcher =  new Dispatcher($r->getData());
