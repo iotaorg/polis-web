@@ -2090,7 +2090,7 @@ font-size: 20px;}
 	****** Template das ações individuais **********
    ==========================================================*/
 
-.acao-header-title-wrap{border-radius: 10px; background-color: rgba(255,255,255,0.65); padding: 15px; color: #333}
+.acao-header-title-wrap{border-radius: 10px; background-color: rgba(255,255,255,0.65); padding: 15px; color: #333; overflow: auto}
 .acao-breadcumbs{padding: 15px 0}
 .acao-acordeon{padding: 20px 0}
 .acao-breadcumbs{padding: 40px 0}
@@ -2127,6 +2127,16 @@ font-size: 20px;}
 .acao-glosario-wrap p.letra {
     break-inside: avoid-column;
     -webkit-column-break-inside: avoid;
+}
+.acao-header-title-wrap img {
+    float: left;
+    display: block;
+    padding-right: 15px;
+}
+.acao-header-title-wrap h2 {
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
 }
 
 .nav-tabs > li > a{border-radius: 10px 10px 0 0; border: 1px solid #ddd; margin-right: 15px}

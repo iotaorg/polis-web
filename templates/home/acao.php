@@ -11,13 +11,9 @@
 <section class="home acao-home acao-eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>">
     <div class="container">
         <div class="acao-header-title-wrap">
-            <header class="acao-header-title">
-                <img src="/static2/images/eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>.png" alt="Icone para <?= $acao->axis_name ?>">
-                <?=$acao->name?>
-            </header>
-            <div class="acao-header-txt">
-                <?=$acao->description?>
-            </div>
+            <img src="/static2/images/eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>.png" alt="Icone para <?= $acao->axis_name ?>">
+            <h2><?=$acao->name?></h2>
+            <p><?=$acao->description?></p>
         </div>
     </div>
 </section>
