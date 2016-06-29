@@ -305,3 +305,10 @@ footer .logo-footer img{
 a.linkacao:hover .acao-txt-wrap {
     background-color: rgb(28,62,99)
 }
+#stxt {
+    font-style: italic;
+}
+#stxt.notfound {
+    color: #f92c2c;
+    font-weight: bold;
+}

@@ -31,8 +31,9 @@ jQuery(document).ready(function($) {
             if (valor == '') {
                 _filter_acoes([], false);
             } else {
-                $txt_info.html('Pesquisando...').addClass('loading');
+                $txt_info.html('Pesquisando...').addClass('loading').removeClass('notfound');
 
+                // no pior caso, mostra acoes, que é sempre vazio = todas
                 var acoes = [];
                 $.ajax({
                     url: '/ajax/pesquisa-acao',
@@ -44,8 +45,6 @@ jQuery(document).ready(function($) {
 
                     acoes = e.ids;
                 }).done(function() {
-
-                    // no pior caso, mostra acoes, que é sempre vazio = todas
                     _filter_acoes(acoes, true);
                 });
 
@@ -58,6 +57,8 @@ jQuery(document).ready(function($) {
                 $itens_acoes.show();
                 var txt_fixo = is_ajax ? 'Nenhum resultado encontrado. Exibindo todas as ações' : ('Exibindo ' + $itens_acoes.length + ' ações');
                 $txt_info.html(txt_fixo).removeClass('loading');
+
+                if (is_ajax) $txt_info.addClass('notfound');
             } else {
                 $txt_info.html('Exibindo ' + who.length + ' ações').removeClass('loading');
 
