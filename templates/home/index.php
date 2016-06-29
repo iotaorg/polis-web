@@ -67,17 +67,17 @@
 
                 <div class="container">
 
-                 <h2>AÇÔES</h2>
+                 <h2>AÇÕES</h2>
 
                     <section class="filtros-eixos-wrap">
                         <form id="busca_acoes" class="busca-acoes">
-                            <div class="input-group add-on">
-                                <input name="srch-term" type="search" class="form-control" placeholder="Buscar ações...">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control srch-term " placeholder="Buscar ações...">
                             </div>
                         </form>
+                        <div class="search-info">
+                            <p id="stxt">Pesquisando...</p>
+                        </div>
 
                     </section>
 
@@ -87,9 +87,9 @@
             <div class="container">
 
 
-                <section class="acoes-list-wrap">
+                <section class="acoes-list-wrap row">
                     <?php foreach (  $acoes as $a ): ?>
-                    <div class="acao-wrap col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div class="acao-wrap col-lg-3 col-md-3 col-sm-4 col-xs-12 acoes-itens" id="acao<?=$a->id?>">
                         <div class="acao-sub-wrap"><a class="linkacao" href="/acao/<?= $a->name_url?>">
                             <div class="acao-img-wrap" style="background-image: url(<?= $a->text_content->url_rede_low?>); background-size:cover; height: 255px">
                             </div>
