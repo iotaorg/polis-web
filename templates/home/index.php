@@ -76,7 +76,7 @@
                             </div>
                         </form>
                         <div class="search-info">
-                            <p id="stxt">Pesquisando...</p>
+                            <p id="stxt">Exibindo <?=sizeof($acoes)?> ações</p>
                         </div>
 
                     </section>
