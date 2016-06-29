@@ -1112,23 +1112,33 @@ footer .menu-footer li a:hover{
 @media(min-width:481px) and (max-width:767px){
 	.acao-sub-wrap, .acao-img-wrap {  }
 }
+
+.acaotxt {
+    position: relative;
+}
 @media(max-width:767px) {
-	body{
-		margin-top: 56px;
-	}
-	.navbar-brand{
-		padding: 10px;
-	}
-	footer .logo-footer{
-		padding: 20px 0 0 0;
-	}
+    body{
+        margin-top: 56px;
+    }
+    .navbar-brand{
+        padding: 10px;
+    }
+    footer .logo-footer{
+        padding: 20px 0 0 0;
+    }
 
-	footer .logo-appcivico{
-		margin-top: 25px;
-		text-align: center;
-	}
+    footer .logo-appcivico{
+        margin-top: 25px;
+        text-align: center;
+    }
 
-	.acao-sub-wrap{width: 80%;}
+    .acaotxt {
+        display: block;
+        height: 123px;
+    }
+	.acao-sub-wrap{width: 100%;}
+    .acao-img-wrap{ display: none}
+
 	.g-e-wrap{
 		width: 100%;
 		padding: 0 15px
@@ -1139,9 +1149,7 @@ footer .menu-footer li a:hover{
 
 }
 @media(max-width:500px){
-	.acao-sub-wrap{width: 80%}
 	.acao-txt-wrap img{max-width: 95px; height: auto}
-	.acao-img-wrap{height: 265px}
 }
 .image-gallery{
 	position: relative;
@@ -1996,6 +2004,7 @@ pre.precode {
 
 .acoes-list-wrap{
 	margin-bottom: 20px;
+    min-height: 600px;
 }
 .acao-sub-wrap{
 	position: relative;

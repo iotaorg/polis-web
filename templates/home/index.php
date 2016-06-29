@@ -93,7 +93,7 @@
                         <div class="acao-sub-wrap"><a class="linkacao" href="/acao/<?= $a->name_url?>">
                             <div class="acao-img-wrap" style="background-image: url(<?= $a->text_content->url_rede_low?>); background-size:cover; height: 255px">
                             </div>
-                            <div style="position:relative">
+                            <div class="acaotxt">
                                 <div class="acao-txt-wrap">
                                     <div class="row">
                                         <img src="/static2/images/eixo<?= preg_replace('/[^0-9]*/', '', $a->axis_name)?>.png" class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
