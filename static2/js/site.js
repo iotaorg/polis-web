@@ -74,4 +74,13 @@ jQuery(document).ready(function($) {
     }
     /* final pesquisa */
 
+    /* filtro pelo eixo */
+    var $eixo_wrap = $('.eixo-wrap'),
+        _click_to_filter = function() {
+            var $me = $(this);
+            $search.val('eixo ' + $me.attr('data-eixo')).trigger('keyup');
+        };
+    $eixo_wrap.on('click', _click_to_filter);
+    /* fianl filtro pelo eixo*/
+
 });

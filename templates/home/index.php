@@ -16,7 +16,7 @@
 
             </div><!-- div.col-sm-12-->
             <div class="eixos-wrap col-lg-12 col-md-12 col-sm-12">
-                    <section class="eixo-wrap col-lg-4 col-md-4 col-sm-12">
+                    <section data-eixo=1 class="eixo-wrap col-lg-4 col-md-4 col-sm-12">
                             <div class="eixo-esq">
                                 <div class="faixa-b"></div>
                             </div>
@@ -29,7 +29,7 @@
                                 <p class="eixo-paragrafo">DESENVOLVIMENTO SUSTENTAVEL E ENVOLVENTE</p>
                             </div>
                     </section>
-                    <section class="eixo-wrap col-lg-4 col-md-4 col-sm-12">
+                    <section data-eixo=2 class="eixo-wrap col-lg-4 col-md-4 col-sm-12">
                         <div class="eixo-esq">
                             <div class="faixa-b"></div>
                         </div>
@@ -42,7 +42,7 @@
                             <p class="eixo-paragrafo">USO SUSTENTAVEL DAS AREAS PROTEGIDAS</p>
                         </div>
                     </section>
-                    <section class=" eixo-wrap col-lg-4 col-md-4 col-sm-12">
+                    <section data-eixo=3 class=" eixo-wrap col-lg-4 col-md-4 col-sm-12">
                         <div class="eixo-esq">
                             <div class="faixa-b"></div>
                         </div>

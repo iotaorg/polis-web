@@ -19,8 +19,8 @@
     <link href="/static2/css/bootstrap-social.css" rel="stylesheet">
 
 
-    <link href="/static2/css/style.css?v=8" rel="stylesheet">
-    <link href="/static2/css/home_style.css?v=8" rel="stylesheet">
+    <link href="/static2/css/style.css?v=9" rel="stylesheet">
+    <link href="/static2/css/home_style.css?v=9" rel="stylesheet">
 
     <!-- Custom Favicon -->
     <link rel="icon" href="/static2/favicon.ico?v=1.1">
@@ -179,7 +179,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="/static2/js/jquery.easing.1.3.js"></script>
     <script src="/static2/js/bootstrap.min.js"></script>
-    <script src="/static2/js/site.js?v=1"></script>
+    <script src="/static2/js/site.js?v=2"></script>
 
     <!-- javascript -->
     <?php $this->block('scripts');?>

@@ -312,3 +312,4 @@ a.linkacao:hover .acao-txt-wrap {
     color: #f92c2c;
     font-weight: bold;
 }
+.eixo-wrap { cursor:pointer; }
