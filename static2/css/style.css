@@ -45,7 +45,7 @@ h2{
     height: 64px;
 }
 a.linkacao div.acao-img-wrap {  }
-a.linkacao:hover div.acao-img-wrap { border: 2px solid white;}
+
 .acao-header-title {
     font-size: 1.5em;
 }
@@ -298,6 +298,10 @@ footer .logo-footer img{
 	}
 }
 
-.acao-eixo1 {background-image: url(/static2/images/cover/eixo1.jpg)}
-.acao-eixo2 {background-image: url(/static2/images/cover/eixo2.jpg)}
-.acao-eixo3 {background-image: url(/static2/images/cover/eixo3.jpg)}
+.acao-eixo1 {background-image: url(/static2/images/cover/eixo1.jpg?v=1)}
+.acao-eixo2 {background-image: url(/static2/images/cover/eixo2.jpg?v=1)}
+.acao-eixo3 {background-image: url(/static2/images/cover/eixo3.jpg?v=1)}
+
+a.linkacao:hover .acao-txt-wrap {
+    background-color: rgb(28,62,99)
+}
