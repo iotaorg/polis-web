@@ -81,11 +81,11 @@
               <div class="tab-content tab-indicador loading" data-id="<?=$i->id?>">
                 <div role="tabpanel" class="tab-pane active "  id="visualizacao<?=$i->id?>">
                     <h4 class="text-center">Carregando gráficos...</h4>
-                    <img class="tableload" src="/static2/images/tableload.gif"/>
+                    <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
                 </div>
                 <div role="tabpanel" class="tab-pane table" id="tabela<?=$i->id?>">
                     <h4 class="text-center">Carregando tabela...</h4>
-                    <img class="tableload " src="/static2/images/tableload.gif"/>
+                    <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="formula<?=$i->id?>"> <?=$i->descricao_formula?></div>
                 <?if ($i->nossa_leitura):?><div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div><?endif?>
