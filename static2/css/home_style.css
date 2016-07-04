@@ -2088,7 +2088,9 @@ ul.m-s-ul > li a{color: rgb(131, 179, 76)}
 .busca-acoes button{background-color: rgba(28,62,99,1);}
 .busca-acoes button, .busca-acoes input{height: 40px;
 font-size: 20px;}
-.busca-acoes input{border-radius: 10px;}
+.busca-acoes input{border-radius: 10px;
+    z-index: 1000;
+    position: relative;}
 .busca-acoes button{border-radius: 0 10px 10px 0}
 .busca-acoes button:hover{background-color: #6FA7E0}
 .btn-primary{background-color: #6FA7E0; border: 1px solid #5a90d3}

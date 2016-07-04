@@ -62,31 +62,33 @@
 
 
 
+
         <h2>Indicadores</h2>
+        <div class="row">
         <? foreach ( $indicadores as $i ): ?>
             <h3><?=$i->name?></h3>
 
-            <div>
+            <div class="col-xs-12">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#visualizacao<?=$i->id?>" aria-controls="visualizacao<?=$i->id?>" role="tab" data-toggle="tab">Visualização</a></li>
                 <li role="presentation"><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
                 <li role="presentation"><a href="#formula<?=$i->id?>" aria-controls="formula<?=$i->id?>" role="tab" data-toggle="tab">Fórmula</a></li>
-                <li role="presentation"><a href="#leitura<?=$i->id?>" aria-controls="leitura<?=$i->id?>" role="tab" data-toggle="tab">Nossa leitura</a></li>
+                <?if ($i->nossa_leitura):?><li role="presentation"><a href="#leitura<?=$i->id?>" aria-controls="leitura<?=$i->id?>" role="tab" data-toggle="tab">Nossa leitura</a></li><?endif?>
               </ul>
 
               <!-- Tab panes -->
-              <div class="tab-content tab-indicador loading">
+              <div class="tab-content tab-indicador loading" data-id="<?=$i->id?>">
                 <div role="tabpanel" class="tab-pane active "  id="visualizacao<?=$i->id?>">
+                    <h4 class="text-center">Carregando gráficos...</h4>
                     <img class="tableload" src="/static2/images/tableload.gif"/>
-                    <h4>Carregando gráficos...</h4>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="tabela<?=$i->id?>">
-                    <img class="tableload" src="/static2/images/tableload.gif"/>
-                    <h4>Carregando tabela...</h4>
+                <div role="tabpanel" class="tab-pane table" id="tabela<?=$i->id?>">
+                    <h4 class="text-center">Carregando tabela...</h4>
+                    <img class="tableload " src="/static2/images/tableload.gif"/>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="formula<?=$i->id?>"> <?=$i->descricao_formula?></div>
-                <div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div>
+                <?if ($i->nossa_leitura):?><div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div><?endif?>
                 </div>
 
             </div>
@@ -100,6 +102,7 @@
             <?=$acao->text_content->txt_glossario?>
         </div>
         <?endif?>
+        </div>
 
     </div>
 </div>
