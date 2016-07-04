@@ -320,4 +320,4 @@ a.linkacao:hover .acao-txt-wrap {
 
 .tab-indicador .tab-pane {padding: 15px;}
 .tableload {display: block; margin: 0 auto}
-.tab-indicador .table {padding: 0; padding-top: 15px; font-size: 0.9em; overflow-y: hidden; overflow-x: auto;}
+.tab-indicador .table {padding: 0; padding-top: 4px; font-size: 0.9em; overflow-y: hidden; overflow-x: auto;}
