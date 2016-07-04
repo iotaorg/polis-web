@@ -12,7 +12,7 @@
     <div class="container">
         <div class="acao-header-title-wrap">
             <img src="/static2/images/eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>.png" alt="Icone para <?= $acao->axis_name ?>">
-            <h2><?=$acao->name?></h2>
+            <h1><small><?=$acao->axis_name?></small> <?=$acao->name?></h1>
             <p><?=$acao->description?></p>
         </div>
     </div>
@@ -61,8 +61,41 @@
         </div>
 
 
+
+        <h2>Indicadores</h2>
+        <? foreach ( $indicadores as $i ): ?>
+            <h3><?=$i->name?></h3>
+
+            <div>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#visualizacao<?=$i->id?>" aria-controls="visualizacao<?=$i->id?>" role="tab" data-toggle="tab">Visualização</a></li>
+                <li role="presentation"><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
+                <li role="presentation"><a href="#formula<?=$i->id?>" aria-controls="formula<?=$i->id?>" role="tab" data-toggle="tab">Fórmula</a></li>
+                <li role="presentation"><a href="#leitura<?=$i->id?>" aria-controls="leitura<?=$i->id?>" role="tab" data-toggle="tab">Nossa leitura</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content tab-indicador loading">
+                <div role="tabpanel" class="tab-pane active "  id="visualizacao<?=$i->id?>">
+                    <img class="tableload" src="/static2/images/tableload.gif"/>
+                    <h4>Carregando gráficos...</h4>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="tabela<?=$i->id?>">
+                    <img class="tableload" src="/static2/images/tableload.gif"/>
+                    <h4>Carregando tabela...</h4>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="formula<?=$i->id?>"> <?=$i->descricao_formula?></div>
+                <div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div>
+                </div>
+
+            </div>
+
+        <?php endforeach ?>
+
+
         <? if ($acao->text_content->txt_glossario):?>
-        <h4>Glossário</h4>
+        <h2>Glossário</h2>
         <div class="acao-glosario-wrap">
             <?=$acao->text_content->txt_glossario?>
         </div>

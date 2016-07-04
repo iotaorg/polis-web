@@ -313,3 +313,10 @@ a.linkacao:hover .acao-txt-wrap {
     font-weight: bold;
 }
 .eixo-wrap { cursor:pointer; }
+.acao-header-title-wrap h1 {font-weight: normal; font-size: 2em; margin: 0}
+
+.acao-header-title-wrap small {color: #444; font-size: 0.8em;}
+.tab-indicador {min-height: 300px}
+
+.tab-indicador .tab-pane {padding: 15px;}
+.tableload {display: block; margin: 0 auto}

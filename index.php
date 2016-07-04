@@ -38,6 +38,12 @@ function curl_get_contents($url)
 
     return $data;
 }
+
+function make_menu(){
+    $menu =json_decode( curl_get_contents(  "/polis/menus"))->{'menus'};
+    return $menu;
+}
+
 class Polis {
 
   public function run(){
@@ -46,18 +52,23 @@ class Polis {
     // home index action
     $r->get('/', function(){
 
+        $menus = make_menu();
         $acoes =json_decode( curl_get_contents(  "/polis/acoes"))->{'acoes'};
 
         foreach ($acoes as $a){
             $a->text_content = json_decode($a->text_content);
         }
-        echo self::render('/home/index.php', [  'acoes' => $acoes  ]);
+        echo self::render('/home/index.php', [  'acoes' => $acoes,'menus' => $menus  ]);
     });
 
     $r->get('acao/{id}', function($id){
+        $menus = make_menu();
         $acao =json_decode( curl_get_contents(  "/polis/acoes_item/$id"));
         $acao->text_content = json_decode($acao->text_content);
-        echo self::render('/home/acao.php', [ 'acao' => $acao]);
+
+        $indicadores =json_decode( curl_get_contents(  "/polis/indicadores_acao/" . $acao->id ))->{'indicators'};
+
+        echo self::render('/home/acao.php', [ 'acao' => $acao, 'menus' => $menus, 'indicadores' => $indicadores]);
     });
 
 
