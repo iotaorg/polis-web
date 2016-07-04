@@ -44,8 +44,9 @@ jQuery(document).ready(function($) {
                 }).success(function(e) {
 
                     acoes = e.ids;
-                }).done(function() {
                     _filter_acoes(acoes, true);
+                }).error(function() {
+                    $txt_info.html('Ocorreu um erro com sua pesquisa...').removeClass('loading').addClass('notfound');
                 });
 
 

@@ -45,24 +45,21 @@
                         <a href="/sobre">Sobre</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/agendas">Agendas</a>
+                        <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/contato">Contato</a>
+                        <a href="http://litoralsustentavel.org.br/contato/">Contato</a>
                     </li>
                 </ul>
                 <ul class="menu menu-social">
                     <li>
-                        <a href="" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/litoralsustentavel/" title="Facebook"><i class="fa fa-facebook"></i></a>
                     </li>
                     <li>
-                        <a href="" title="Twitter" ><i class="fa fa-twitter"></i></a>
+                        <a href="https://twitter.com/observalitoral" title="Twitter" ><i class="fa fa-twitter"></i></a>
                     </li>
                     <li>
-                        <a href="" title="Youtube" ><i class="fa fa-youtube-play"></i></a>
-                    </li>
-                    <li>
-                        <a href="" tittle="search"><i class="fa fa-search"></i></a>
+                        <a href="https://www.youtube.com/litoralsustentavel" title="Youtube" ><i class="fa fa-youtube-play"></i></a>
                     </li>
                 </ul>
 
@@ -84,10 +81,10 @@
                 <a href="/sobre">Sobre</a>
             </li>
             <li class="page-scroll">
-                <a href="/agendas">Agendas</a>
+                <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
             </li>
             <li class="page-scroll">
-                <a href="/contato">Contato</a>
+                <a href="http://litoralsustentavel.org.br/contato/">Contato</a>
             </li>
         </ul>
     </div>
@@ -112,16 +109,16 @@
                             </ul>
                         </li>
                         <li class="m-s-li-principal">
-                            <a href="#">AGENDAS</a>
+                            <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">AGENDAS</a>
                             <ul>
                                 <li>Sobre</li>
                             </ul>
                         </li>
                         <li class="m-s-li-principal">
-                            <a href="#">CONTATO</a>
+                            <a href="http://litoralsustentavel.org.br/contato/">CONTATO</a>
                             <ul>
                                 <li>
-                                    <a href="#">Sobre</a>
+                                   XXX
                                 </li>
                             </ul>
                         </li>
