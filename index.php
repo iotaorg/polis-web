@@ -71,8 +71,11 @@ class Polis
 
         /* tabela */
         $r->get('ajax/indicador_tabela_rot_regiao',  function () {
-            $valores = json_decode(curl_get_contents("/polis/indicador_tabela_rot_regiao/" . urlencode(@$_GET['id'])));
-            echo self::render('/segment/tabela_rot.php', ['dados' => $valores]);
+
+            $variable_type = @$_GET['variable_type'] == 'str' ? 'indicador_tabela_rot_txt' : 'indicador_tabela_rot_regiao';
+
+            $valores = curl_get_contents("/polis/$variable_type/" . urlencode(@$_GET['id']));
+            echo self::render('/segment/tabela_rot.php', ['dados' => json_decode($valores), 'json' => $valores, 'js' => @$_GET['js'] ]);
         });
 
         /* ajax pesquisa */

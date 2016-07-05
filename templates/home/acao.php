@@ -72,26 +72,30 @@
                     <dt>Descrição da Fórmula</dt><dd> <?=$i->descricao_formula?></dd>
                     <dt>Nossa leitura</dt><dd> <?=$i->nossa_leitura?></dd>
                 </dl>
-                <iframe width="100%" style="border:none" height=400 src="/ajax/indicador_tabela_rot_regiao?id=<?=urlencode($i->id)?>">
+                <iframe width="100%" style="border:none" height=400 src="/ajax/indicador_tabela_rot_regiao?id=<?=urlencode($i->id)?>&amp;variable_type=<?=$i->variable_type?>">
                 </iframe>
             </noscript>
 
             <div class="jsonly col-xs-12">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
+                <?if (!(@$i->variable_type == 'str')): ?>
                 <li role="presentation" class="active"><a href="#visualizacao<?=$i->id?>" aria-controls="visualizacao<?=$i->id?>" role="tab" data-toggle="tab">Visualização</a></li>
-                <li role="presentation"><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
+                <?endif?>
+                <li role="presentation" class="<?if ((@$i->variable_type == 'str')): ?>active<?endif?>" ><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
                 <li role="presentation"><a href="#formula<?=$i->id?>" aria-controls="formula<?=$i->id?>" role="tab" data-toggle="tab">Fórmula</a></li>
                 <?if ($i->nossa_leitura):?><li role="presentation"><a href="#leitura<?=$i->id?>" aria-controls="leitura<?=$i->id?>" role="tab" data-toggle="tab">Nossa leitura</a></li><?endif?>
               </ul>
 
               <!-- Tab panes -->
-              <div class="tab-content tab-indicador loading" data-id="<?=$i->id?>">
+              <div class="tab-content tab-indicador loading" data-variable-type="<?=$i->variable_type?>" data-id="<?=$i->id?>">
+                <?if (!(@$i->variable_type == 'str')): ?>
                 <div role="tabpanel" class="tab-pane active "  id="visualizacao<?=$i->id?>">
                     <h4 class="text-center">Carregando gráficos...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
                 </div>
-                <div role="tabpanel" class="tab-pane table" id="tabela<?=$i->id?>">
+                <?endif?>
+                <div role="tabpanel" class="tab-pane table <?if ((@$i->variable_type == 'str')): ?>active<?endif?>" id="tabela<?=$i->id?>">
                     <h4 class="text-center">Carregando tabela...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
 

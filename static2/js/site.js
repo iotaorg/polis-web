@@ -89,12 +89,14 @@ jQuery(document).ready(function($) {
     var $indicadores = $('.tab-indicador'),
     _carrega_tabela_indicador = function(e){
 
-        var $self = $(e), id = $self.attr('data-id');
+        var $self = $(e), id = $self.attr('data-id'), vt=$self.attr('data-variable-type');
 
         $.ajax({
             url: '/ajax/indicador_tabela_rot_regiao',
             data: {
-                id: id
+                id: id,
+                variable_type: vt,
+                js: 1
             },
             dataType: "html",
         }).success(function(e) {
