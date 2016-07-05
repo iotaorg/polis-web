@@ -88,23 +88,20 @@ jQuery(document).ready(function($) {
 
     var $indicadores = $('.tab-indicador'),
     _carrega_tabela_indicador = function(e){
-        console.log(e);
+
         var $self = $(e), id = $self.attr('data-id');
 
         $.ajax({
-                    url: '/ajax/indicador_tabela_rot_regiao',
-                    data: {
-                        id: id
-                    },
-                    dataType: "html",
-                }).success(function(e) {
-
-
-                    $self.find('.table').html(e);
-
-                }).error(function() {
-                    $txt_info.html('Ocorreu um erro com sua pesquisa...').removeClass('loading').addClass('notfound');
-                });
+            url: '/ajax/indicador_tabela_rot_regiao',
+            data: {
+                id: id
+            },
+            dataType: "html",
+        }).success(function(e) {
+            $self.find('.table').html(e);
+        }).error(function() {
+            $self.find('.table').html('Ocorreu um erro ao carregar os dados...');
+        });
 
     };
 
