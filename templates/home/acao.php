@@ -66,8 +66,8 @@
         <h2>Indicadores</h2>
         <div class="row">
         <? foreach ( $indicadores as $i ): ?>
-            <h3><?=$i->name?></h3>
             <noscript>
+                <h3><?=$i->name?></h3>
                 <dl>
                     <dt>Descrição da Fórmula</dt><dd> <?=$i->descricao_formula?></dd>
                     <dt>Nossa leitura</dt><dd> <?=$i->nossa_leitura?></dd>
@@ -77,6 +77,7 @@
             </noscript>
 
             <div class="jsonly col-xs-12">
+                <h3><?=$i->name?></h3>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
                 <?if (!(@$i->variable_type == 'str')): ?>
