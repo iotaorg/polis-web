@@ -67,8 +67,16 @@
         <div class="row">
         <? foreach ( $indicadores as $i ): ?>
             <h3><?=$i->name?></h3>
+            <noscript>
+                <dl>
+                    <dt>Descrição da Fórmula</dt><dd> <?=$i->descricao_formula?></dd>
+                    <dt>Nossa leitura</dt><dd> <?=$i->nossa_leitura?></dd>
+                </dl>
+                <iframe width="100%" style="border:none" height=400 src="/ajax/indicador_tabela_rot_regiao?id=<?=urlencode($i->id)?>">
+                </iframe>
+            </noscript>
 
-            <div class="col-xs-12">
+            <div class="jsonly col-xs-12">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#visualizacao<?=$i->id?>" aria-controls="visualizacao<?=$i->id?>" role="tab" data-toggle="tab">Visualização</a></li>
@@ -86,6 +94,7 @@
                 <div role="tabpanel" class="tab-pane table" id="tabela<?=$i->id?>">
                     <h4 class="text-center">Carregando tabela...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
+
                 </div>
                 <div role="tabpanel" class="tab-pane" id="formula<?=$i->id?>"> <?=$i->descricao_formula?></div>
                 <?if ($i->nossa_leitura):?><div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div><?endif?>
