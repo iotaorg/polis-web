@@ -321,6 +321,13 @@ a.linkacao:hover .acao-txt-wrap {
 .tab-indicador .tab-pane {padding: 15px;}
 .tableload {display: block; margin: 0 auto}
 .tab-indicador .table {padding: 0; padding-top: 4px; font-size: 0.9em; overflow-y: hidden; overflow-x: auto;}
+.tab-indicador .table-txt {font-size: 1em; font-weight: bold;}
+.tab-indicador .table-txt tbody td {border: 2px solid black}
+.tab-indicador .table-txt thead th {border-bottom: 2px solid black}
+.tab-indicador span.invert {
+-webkit-filter: invert(100%); filter: invert(100%);
+}
+
 @media (max-width: 767px) {
     .nav-top img {
     width: 233px;}

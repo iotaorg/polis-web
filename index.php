@@ -75,7 +75,7 @@ class Polis
             $variable_type = @$_GET['variable_type'] == 'str' ? 'indicador_tabela_rot_txt' : 'indicador_tabela_rot_regiao';
 
             $valores = curl_get_contents("/polis/$variable_type/" . urlencode(@$_GET['id']));
-            echo self::render('/segment/tabela_rot.php', ['dados' => json_decode($valores), 'json' => $valores, 'js' => @$_GET['js'] ]);
+            echo self::render("/segment/$variable_type.php", ['dados' => json_decode($valores), 'json' => $valores, 'js' => @$_GET['js'] ]);
         });
 
         /* ajax pesquisa */

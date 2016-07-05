@@ -95,7 +95,7 @@
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
                 </div>
                 <?endif?>
-                <div role="tabpanel" class="tab-pane table <?if ((@$i->variable_type == 'str')): ?>active<?endif?>" id="tabela<?=$i->id?>">
+                <div role="tabpanel" class="tab-pane table <?if ((@$i->variable_type == 'str')): ?>table-txt active<?endif?>" id="tabela<?=$i->id?>">
                     <h4 class="text-center">Carregando tabela...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
 
