@@ -9,13 +9,12 @@
     <title><?php $this->block('title');?></title>
 
     <!-- Bootstrap Core CSS
+    <link href="/static2/css/bootstrap.min.css" rel="stylesheet">
+-->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,900,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
--->
     <!-- Custom CSS -->
     <link href="/static2/css/font-awesome.css" rel="stylesheet">
-    <link href="/static2/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static2/css/bootstrap-social.css" rel="stylesheet">
 
 
@@ -31,6 +30,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/static2/js/excanvas.min.js"></script><![endif]-->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,900,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <noscript><style> .jsonly { display: none } </style></noscript>
 </head>
 <body id="page-top" class="index">
@@ -175,9 +176,10 @@
 
     <!-- Core JavaScript Files -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/static2/js/jquery.easing.1.3.js"></script>
-    <script src="/static2/js/bootstrap.min.js"></script>
-    <script src="/static2/js/site.js?v=2"></script>
+    <script async src="/static2/js/jquery.easing.1.3.js"></script>
+    <script async src="/static2/js/bootstrap.min.js"></script>
+    <script async src="/static2/js/site.js?v=5"></script>
+    <script src="/static2/js/jquery.flot.min.js"></script>
 
     <!-- javascript -->
     <?php $this->block('scripts');?>

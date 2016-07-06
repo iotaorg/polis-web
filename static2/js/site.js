@@ -87,27 +87,113 @@ jQuery(document).ready(function($) {
     /* carregar dados indicadores */
 
     var $indicadores = $('.tab-indicador'),
-    _carrega_tabela_indicador = function(e){
+        _carrega_tabela_indicador = function(e) {
 
-        var $self = $(e), id = $self.attr('data-id'), vt=$self.attr('data-variable-type');
+            var $self = $(e),
+                id = $self.attr('data-id'),
+                vt = $self.attr('data-variable-type');
 
-        $.ajax({
-            url: '/ajax/indicador_tabela_rot_regiao',
-            data: {
-                id: id,
-                variable_type: vt,
-                js: 1
-            },
-            dataType: "html",
-        }).success(function(e) {
-            $self.find('.table').html(e);
-        }).error(function() {
-            $self.find('.table').html('Ocorreu um erro ao carregar os dados...');
-        });
+            $.ajax({
+                url: '/ajax/indicador_tabela_rot_regiao',
+                data: {
+                    id: id,
+                    variable_type: vt,
+                    js: 1
+                },
+                dataType: "html",
+            }).success(function(e) {
+                $self.find('.table').html(e);
 
-    };
+                if (!(vt === 'str')) {
+                    _carrega_flot_graph($self, $.parseJSON($self.find('div[data-json]').attr('data-json')))
+                }
+            }).error(function() {
+                $self.find('.table').html('Ocorreu um erro ao carregar os dados...');
+            });
 
-    $indicadores.each(function(i, e){
+        },
+
+        _carrega_flot_graph = function($where, graph) {
+            $where.find('.graph').html(graph);
+
+            var datasets = {};
+
+            $.each(graph.headers, function(i, region) {
+
+                var data = [];
+                $.each(graph.lines, function(i, when) {
+                    data.push([when.v, graph.data[when.k] ? graph.data[when.k][region.k] : undefined]);
+                });
+
+                datasets[region.k] = {
+                    label: region.v,
+                    data: data
+                };
+            });
+            var i = 0;
+            $.each(datasets, function(key, val) {
+                val.color = i;
+                ++i;
+            });
+
+            // insert checkboxes
+            var choiceContainer = $where.append('<div style="width: 18%; float:right; font-size: 0.8em" class="a form-group"></div>').find('.a');
+
+            $.each(datasets, function(key, val) {
+                choiceContainer.append("<div class='checkbox'><label><input type='checkbox' name='" + key +
+                    "' checked='checked'></input>" + val.label + "</label></div>");
+            });
+
+            var $graph_div = choiceContainer.parent().append('<div style="float:left; width: 80%; min-height: 500px" class="b"></div>').find('.b');
+            choiceContainer.find("input").click(plotAccordingToChoices);
+
+
+            function plotAccordingToChoices() {
+
+                var data = [];
+
+                choiceContainer.find("input:checked").each(function() {
+                    var key = $(this).attr("name");
+                    if (key && datasets[key]) {
+                        data.push(datasets[key]);
+                    }
+                });
+
+                if (data.length > 0) {
+                    var plot = $.plot($graph_div, data, {
+                        yaxis: {
+                            autoscaleMargin: 0.5
+                        },
+                        series: {
+                            lines: {
+                                show: true
+                            },
+                            points: {
+                                show: true
+                            }
+                        },
+                        legend: {
+                            noColumns: 2
+                        },
+                        xaxis: {
+                            tickDecimals: 2
+                        }
+                    });
+                }
+
+            }
+
+            plotAccordingToChoices();
+
+            $(window).bind('resize', debounce(function (){
+                    plotAccordingToChoices();
+            }, 100))
+
+            //$search.on('keyup', debounce(_ajax_acoes, 150));
+
+        };
+
+    $indicadores.each(function(i, e) {
         _carrega_tabela_indicador(e)
     })
 

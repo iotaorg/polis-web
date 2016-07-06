@@ -91,7 +91,7 @@
               <!-- Tab panes -->
               <div class="tab-content tab-indicador loading" data-variable-type="<?=$i->variable_type?>" data-id="<?=$i->id?>">
                 <?if (!(@$i->variable_type == 'str')): ?>
-                <div role="tabpanel" class="tab-pane active "  id="visualizacao<?=$i->id?>">
+                <div role="tabpanel" class="tab-pane graph active "  id="visualizacao<?=$i->id?>">
                     <h4 class="text-center">Carregando gráficos...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
                 </div>
