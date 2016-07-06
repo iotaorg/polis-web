@@ -43,9 +43,28 @@
                     <li class="page-scroll">
                         <a href="/">Home</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="/sobre">Sobre</a>
-                    </li>
+<?php $this->begin('menu');?>
+<?foreach ($menus as $v):?>
+    <?if (!empty($v->subs)):?>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=$v->title?> <span class="caret"></span></a>
+
+        <ul class="dropdown-menu">
+            <?foreach ($v->subs as $s):?>
+                <li>
+                    <a href="/pagina/<?=$s->page->title_url?>">〉<?=$s->page->title?></a>
+                </li>
+            <?endforeach?>
+        </ul>
+
+    </li>
+    <?elseif ($v->page):?>
+    <li class="page-scroll">
+        <a href="/pagina/<?=$v->page->title_url?>"><?=$v->title?></a>
+    </li>
+    <?endif?>
+<?endforeach?>
+<?php $this->end();?>
                     <li class="page-scroll">
                         <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
                     </li>
@@ -76,9 +95,7 @@
     <a href="/"><img src="/static2/css/images/logo-monitoramento-branco.svg" border="0"></a>
     <div class="navbar-menu collapse">
         <ul>
-            <li class="page-scroll">
-                <a href="/sobre">Sobre</a>
-            </li>
+            <?php $this->block('menu');?>
             <li class="page-scroll">
                 <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
             </li>

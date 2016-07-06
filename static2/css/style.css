@@ -327,8 +327,22 @@ a.linkacao:hover .acao-txt-wrap {
 .tab-indicador span.invert {
 -webkit-filter: invert(100%); filter: invert(100%);
 }
-
+.open>.dropdown-menu {
+    display: block;
+    background-color: #6fa7e0;
+    margin-top: -10px;
+    border: 0;
+    font-size: 1em;
+    width: 100%;
+    margin-left: 0px;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
 @media (max-width: 767px) {
     .nav-top img {
     width: 233px;}
+}
+.dropdown-menu a:hover,.dropdown-menu a:active,.dropdown-menu a:visited {
+    background-color: transparent !important;
 }

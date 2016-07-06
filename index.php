@@ -38,7 +38,25 @@ function curl_get_contents($url)
 function make_menu()
 {
     $menu = json_decode(curl_get_contents("/polis/menus"))->{'menus'};
-    return $menu;
+    $ref_menu  = new StdClass;
+
+    foreach ($menu as $v ){
+        $ref_menu->{$v->id} = $v;
+    }
+
+    $out = [];
+    foreach ($menu as $v ){
+        if($v->menu_id && !empty($ref_menu->{$v->menu_id}) ){
+            if ( empty($ref_menu->{$v->menu_id}->{'subs'})){
+                $ref_menu->{$v->menu_id}->{'subs'} = [];
+            }
+            $ref_menu->{$v->menu_id}->{'subs'}[] = $v;
+        }else if(!$v->menu_id){
+            $out[] = $v;
+        }
+    }
+
+    return $out;
 }
 
 class Polis
