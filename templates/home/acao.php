@@ -8,10 +8,10 @@
 
 <?php $this->begin('content');?>
 
-<section class="home acao-home acao-eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>">
+<section class="home acao-home acao-eixo<? $eixo= preg_replace('/[^0-9]*/', '', $acao->axis_name); echo $eixo ?>">
     <div class="container">
         <div class="acao-header-title-wrap">
-            <img src="/static2/images/eixo<?= preg_replace('/[^0-9]*/', '', $acao->axis_name)?>.png" alt="Icone para <?= $acao->axis_name ?>">
+            <a href="/?eixo=<?=$eixo?>"><img src="/static2/images/eixo<?= $eixo ?>.png" alt="Icone para <?= $acao->axis_name ?>"></a>
             <h1><small><?=$acao->axis_name?></small> <?=$acao->name?></h1>
             <p><?=$acao->description?></p>
         </div>

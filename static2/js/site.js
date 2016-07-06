@@ -13,7 +13,20 @@ function debounce(func, wait, immediate) {
         if (callNow) func.apply(context, args);
     };
 };
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
 jQuery(document).ready(function($) {
     "use strict";
 
@@ -77,11 +90,17 @@ jQuery(document).ready(function($) {
 
     /* filtro pelo eixo */
     var $eixo_wrap = $('.eixo-wrap'),
+        eixo_num = getUrlParameter('eixo'),
         _click_to_filter = function() {
             var $me = $(this);
             $search.val('eixo ' + $me.attr('data-eixo')).trigger('keyup');
         };
     $eixo_wrap.on('click', _click_to_filter);
+    // ativa o eixo caso venha no parametro
+    if (eixo_num)
+        $eixo_wrap.filter('[data-eixo="'+eixo_num+'"]').click();
+
+
     /* fianl filtro pelo eixo*/
 
     /* carregar dados indicadores */

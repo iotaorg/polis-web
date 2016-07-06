@@ -73,12 +73,9 @@
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
         <i class="fa fa-bars"></i>
     </button>
-    <img src="/static2/css/images/logo-monitoramento-branco.svg" border="0">
+    <a href="/"><img src="/static2/css/images/logo-monitoramento-branco.svg" border="0"></a>
     <div class="navbar-menu collapse">
         <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
             <li class="page-scroll">
                 <a href="/sobre">Sobre</a>
             </li>
