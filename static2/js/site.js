@@ -114,7 +114,7 @@ jQuery(document).ready(function($) {
         },
 
         _carrega_flot_graph = function($where, graph) {
-            $where.find('.graph').html(graph);
+            $where = $where.find('.graph').html('');
 
             var datasets = {};
 

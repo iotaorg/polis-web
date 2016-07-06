@@ -178,7 +178,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script async src="/static2/js/jquery.easing.1.3.js"></script>
     <script async src="/static2/js/bootstrap.min.js"></script>
-    <script async src="/static2/js/site.js?v=5"></script>
+    <script async src="/static2/js/site.js?v=6"></script>
     <script src="/static2/js/jquery.flot.min.js"></script>
 
     <!-- javascript -->
