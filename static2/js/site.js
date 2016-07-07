@@ -98,9 +98,15 @@ jQuery(document).ready(function($) {
 
             if( target.length ) {
                 event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 69
-                }, 500);
+
+                if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+                    window.scrollTo(0,target.offset().top - 69)
+                }else{
+
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 69
+                    }, 500);
+                }
             }
         };
     $eixo_wrap.on('click', _click_to_filter);
