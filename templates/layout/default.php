@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><?$version='106'?>
+<head><?$version='107'?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
-    <link href="/static2/css/font-awesome.css" rel="stylesheet">
+    <link href="/static2/css/font-awesome.css?v=1" rel="stylesheet">
     <link href="/static2/css/bootstrap-social.css" rel="stylesheet">
 
     <link href="/static2/css/style.css?v=<?=$version?>" rel="stylesheet">
@@ -63,28 +63,27 @@
     <?endif?>
 <?endforeach?>
 <?php $this->end();?>
-                    <li class="page-scroll">
-                        <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="http://litoralsustentavel.org.br/contato/">Contato</a>
-                    </li>
-                </ul>
-                <ul class="menu menu-social">
-                    <li>
-                        <a href="/frontend/admin" style="opacity:0.3;font-size: 10px">admin</a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/litoralsustentavel/" title="Facebook"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/observalitoral" title="Twitter" ><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.youtube.com/litoralsustentavel" title="Youtube" ><i class="fa fa-youtube-play"></i></a>
-                    </li>
-                </ul>
-
+        <li class="page-scroll">
+            <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
+        </li>
+        <li class="page-scroll">
+            <a href="http://litoralsustentavel.org.br/contato/">Contato</a>
+        </li>
+    </ul>
+    <ul class="menu menu-social">
+        <li>
+            <a href="/frontend/admin" style="opacity:0.3;font-size: 10px">admin</a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/litoralsustentavel/" title="Facebook"><i class="fa fa-facebook"></i></a>
+        </li>
+        <li>
+            <a href="https://twitter.com/observalitoral" title="Twitter" ><i class="fa fa-twitter"></i></a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/litoralsustentavel" title="Youtube" ><i class="fa fa-youtube-play"></i></a>
+        </li>
+    </ul>
         </div>
     </div>
 </section>

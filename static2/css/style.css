@@ -761,9 +761,9 @@ footer .aware a:hover{
     .logos-alinhados {text-align: center;}
 }
 
-.acao-eixo1 {background-image: url(/static2/images/cover/eixo1.jpg?v=1)}
-.acao-eixo2 {background-image: url(/static2/images/cover/eixo2.jpg?v=1)}
-.acao-eixo3 {background-image: url(/static2/images/cover/eixo3.jpg?v=1)}
+.acao-eixo1 {background-image: url(/static2/images/cover/eixo1.jpg?v=2)}
+.acao-eixo2 {background-image: url(/static2/images/cover/eixo2.jpg?v=2)}
+.acao-eixo3 {background-image: url(/static2/images/cover/eixo3.jpg?v=2)}
 
 a.linkacao:hover .acao-txt-wrap {
     background-color: rgb(28,62,99)
