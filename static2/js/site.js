@@ -94,12 +94,19 @@ jQuery(document).ready(function($) {
         _click_to_filter = function() {
             var $me = $(this);
             $search.val('eixo ' + $me.attr('data-eixo')).trigger('keyup');
+            var target = $( '.filtros-eixos-wrap' );
+
+            if( target.length ) {
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 69
+                }, 500);
+            }
         };
     $eixo_wrap.on('click', _click_to_filter);
     // ativa o eixo caso venha no parametro
     if (eixo_num)
         $eixo_wrap.filter('[data-eixo="'+eixo_num+'"]').click();
-
 
     /* fianl filtro pelo eixo*/
 
