@@ -18,26 +18,13 @@ error_reporting(E_ALL | E_STRICT);
  * Diarissíma app class
  * @author dvinciguerra / renato cron
  */
-function curl_get_contents($url)
+function my_file_get_contents($url)
 {
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_VERBOSE, 1);
-    curl_setopt($ch, CURLOPT_URL, API_URL . $url);
-    $data = curl_exec($ch);
-    if ($data === false) {
-        echo (curl_error($ch));
-        exit;
-    }
-
-    curl_close($ch);
-    return $data;
+    return file_get_contents(API_URL . $url);
 }
-
 function make_menu()
 {
-    $menu = json_decode(curl_get_contents("/polis/menus"))->{'menus'};
+    $menu = json_decode(my_file_get_contents("/polis/menus"))->{'menus'};
     $ref_menu  = new StdClass;
 
     foreach ($menu as $v ){
@@ -70,7 +57,7 @@ class Polis
         /* lista de acoes */
         $r->get('/', function () {
             $menus = make_menu();
-            $acoes = json_decode(curl_get_contents("/polis/acoes"))->{'acoes'};
+            $acoes = json_decode(my_file_get_contents("/polis/acoes"))->{'acoes'};
             foreach($acoes as $a) {
                 $a->text_content = json_decode($a->text_content);
             }
@@ -81,10 +68,18 @@ class Polis
         /* pagina acao */
         $r->get('acao/{id}', function ($id) {
             $menus = make_menu();
-            $acao = json_decode(curl_get_contents("/polis/acoes_item/$id"));
+            $acao = json_decode(my_file_get_contents("/polis/acoes_item/$id"));
             $acao->text_content = json_decode($acao->text_content);
-            $indicadores = json_decode(curl_get_contents("/polis/indicadores_acao/" . $acao->id))->{'indicators'};
+            $indicadores = json_decode(my_file_get_contents("/polis/indicadores_acao/" . $acao->id))->{'indicators'};
             echo self::render('/home/acao.php', ['acao' => $acao, 'menus' => $menus, 'indicadores' => $indicadores]);
+        });
+
+        /* pagina pagina */
+        $r->get('pagina/{id}', function ($id) {
+            $menus = make_menu();
+            $pagina = json_decode(my_file_get_contents("/polis/pagina/$id"))->{'page'};
+
+            echo self::render('/home/pagina.php', ['pagina' => $pagina, 'menus' => $menus ]);
         });
 
         /* tabela */
@@ -92,13 +87,13 @@ class Polis
 
             $variable_type = @$_GET['variable_type'] == 'str' ? 'indicador_tabela_rot_txt' : 'indicador_tabela_rot_regiao';
 
-            $valores = curl_get_contents("/polis/$variable_type/" . urlencode(@$_GET['id']));
+            $valores = my_file_get_contents("/polis/$variable_type/" . urlencode(@$_GET['id']));
             echo self::render("/segment/$variable_type.php", ['dados' => json_decode($valores), 'json' => $valores, 'js' => @$_GET['js'] ]);
         });
 
         /* ajax pesquisa */
         $r->get('ajax/pesquisa-acao', function () {
-            echo ((curl_get_contents("/polis/acoes_search_get_ids?q=" . urlencode(@$_GET['q']))));
+            echo ((my_file_get_contents("/polis/acoes_search_get_ids?q=" . urlencode(@$_GET['q']))));
             exit;
         });
 
