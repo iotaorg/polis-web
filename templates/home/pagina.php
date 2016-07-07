@@ -12,7 +12,7 @@
             </div>
         </div>
 </section>
-<div class="acao-content-wrap">
+<div class="content-pagina">
     <div class="container">
 
     <h1><?php $this->begin('title');?>  Página <?=$pagina->title?><?php $this->end();?></h1>

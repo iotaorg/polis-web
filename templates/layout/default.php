@@ -160,10 +160,13 @@
                 <p>Pólis - Instituto de Estudos, Formação e Assessoria em Políticas Sociais. Rua Araújo 124, São Paulo - SP observatorio@litoralsustentavel.org.br</p>
                 <p>55 11 2174 6800</p>
             </div>
-                    <a style="display:inline-block; width: 50%"  title="Ir para Iota" target="_blank" href="https://github.com/eokoe/Iota">
-                        <img style="max-width: 40%; margin-right: 30%" alt="Logo do sistema IOTA" src="/static2/css/images/iota-negativo.svg" >
-                    </a>
-            <div class="cc-wrap col-lg-4 col-md-4 col-sm-4 col-xs-12">Alguns direitos reservados <img src="/static2/css/images/cc.png"></div>
+
+            <div class="cc-wrap col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                Plataforma de Indicadores <a title="Ir para Iota" target="_blank" href="http://eokoe.github.io/Iota/">
+                    <img style="height: 30px; margin-top: -8px" alt="Logo do sistema IOTA" src="/static2/css/images/iota-negativo.svg" >
+                </a><br/>
+                Alguns direitos reservados <img src="/static2/css/images/cc.png">
+            </div>
         </div>
     </div>
 </footer>
