@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head><?$version='100'?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +18,8 @@
     <link href="/static2/css/bootstrap-social.css" rel="stylesheet">
 
 
-    <link href="/static2/css/style.css?v=12" rel="stylesheet">
-    <link href="/static2/css/home_style.css?v=12" rel="stylesheet">
+    <link href="/static2/css/style.css?v=<?=$version?>" rel="stylesheet">
+    <link href="/static2/css/home_style.css?v=<?=$version?>" rel="stylesheet">
 
     <!-- Custom Favicon -->
     <link rel="icon" href="/static2/favicon.ico?v=1.1">
@@ -194,7 +194,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script async src="/static2/js/jquery.easing.1.3.js"></script>
     <script async src="/static2/js/bootstrap.min.js"></script>
-    <script async src="/static2/js/site.js?v=6"></script>
+    <script async src="/static2/js/site.js?v=<?=$version?>"></script>
     <script src="/static2/js/jquery.flot.min.js"></script>
 
     <!-- javascript -->
