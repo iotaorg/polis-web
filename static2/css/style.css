@@ -641,7 +641,7 @@ a.linkacao div.acao-img-wrap {  }
 .home{
 	background-color: white;
 	color: #fff;
-	background-image: url("images/header_full.jpg");
+	background-image: url("images/header_full.jpg?v=1");
 	background-repeat: no-repeat;
 	background-position: bottom center;
     background-size: cover;
