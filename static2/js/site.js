@@ -100,9 +100,10 @@ jQuery(document).ready(function($) {
                 event.preventDefault();
 
                 if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
-                    window.scrollTo(0,target.offset().top - 69)
+                    window.setTimeout(function() {
+                        window.scrollTo(0,target.offset().top - 69)
+                    },0);
                 }else{
-
                     $('html, body').animate({
                         scrollTop: target.offset().top - 69
                     }, 500);
