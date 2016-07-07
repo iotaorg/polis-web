@@ -110,7 +110,7 @@
 <footer class="footer-principal">
     <div class="container">
         <div class="row">
-            <div class="mapa-do-site col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="mapa-do-site col-md-4" style="background-color: rgba(255,255,255,0.1);padding: 9px;">
                 <div class="mapa-s-title">
                     <h2>MAPA DO SITE</h2>
                 </div>
@@ -143,33 +143,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="apoio-wrap col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                <div style="background-color: white; overflow:auto">
-                    <a title="Ir para Petrobras" target="_blank" class="a-block" href="http://www.petrobras.com.br/pt/">
-                        <img src="/static2/css/images/petrobras-logo.png" style="width: 100%;"/>
-                    </a>
-                </div>
-
-                <div style=" background-color: white; overflow:auto;">
-                    <a title="Ir para Polis" target="_blank" class="a-block" href="http://polis.org.br/">
-                        <img style=" padding: 15px" src="/static2/css/images/logo_polis_invertido.png" />
-                    </a>
-
-                    <a title="Ir para Litoral Sustentavel" target="_blank" class="a-block" href="http://litoralsustentavel.org.br/" >
-                        <img alt="Logo Observatório Litoral Sustentável" src="/static2/css/images/logo-obs-preto.png" style="width: 325px"/>
-                    </a>
-                </div>
-
-                <div style="overflow:auto; text-align: right">
-                    <a style="display:inline-block; width: 49%;" href="http://www.brasil.gov.br/" target="_blank" >
-                        <img src="/static2/css/images/governo-federal-Temer.jpg" style="max-width: 100%; margin-top: 5px">
-                    </a>
-                    <a style="display:inline-block; width: 50%"  title="Ir para Iota" target="_blank" href="https://github.com/eokoe/Iota">
-                        <img style="max-width: 40%; margin-right: 30%" alt="Logo do sistema IOTA" src="/static2/css/images/iota-negativo.svg" >
-                    </a>
-                </div>
-
-
+            <div class="apoio-wrap col-md-5 col-xs-7" style="background-color: rgba(255,255,255,0.1);padding: 82px;text-align: center;">
+                <a title="Ir para Litoral Sustentavel" target="_blank" class="a-block" href="http://litoralsustentavel.org.br/" >
+                    <img alt="Logo Observatório Litoral Sustentável" src="/static2/css/images/logo-obs-preto.png" style="width: 325px"/>
+                </a>
+            </div>
+            <div class="apoio-wrap col-md-3 col-xs-5 text-right" style="background-color: rgba(255,255,255,0.1);padding: 0;">
+                <img src="/static2/css/images/logos-juntos.jpg" style="height: 270px"/>
             </div>
         </div>
     </div>
@@ -182,6 +162,9 @@
                 <p>Pólis - Instituto de Estudos, Formação e Assessoria em Políticas Sociais. Rua Araújo 124, São Paulo - SP observatorio@litoralsustentavel.org.br</p>
                 <p>55 11 2174 6800</p>
             </div>
+                    <a style="display:inline-block; width: 50%"  title="Ir para Iota" target="_blank" href="https://github.com/eokoe/Iota">
+                        <img style="max-width: 40%; margin-right: 30%" alt="Logo do sistema IOTA" src="/static2/css/images/iota-negativo.svg" >
+                    </a>
             <div class="cc-wrap col-lg-4 col-md-4 col-sm-4 col-xs-12">Alguns direitos reservados <img src="/static2/css/images/cc.png"></div>
         </div>
     </div>
