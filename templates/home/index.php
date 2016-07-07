@@ -14,7 +14,9 @@
             <div class="col-sm-12">
                 <a href="/"><div class="home-logo-wraper hidden-xs"><img src="/static2/css/images/logo-monitoramento-branco.svg?v=1"></div></a>
 
-            </div><!-- div.col-sm-12-->
+            </div>
+
+
             <div class="eixos-wrap col-lg-12 col-md-12 col-sm-12">
                     <section data-eixo=1 class="eixo-wrap col-lg-4 col-md-4 col-sm-12">
                             <div class="eixo-esq">

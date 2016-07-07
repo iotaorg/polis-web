@@ -4,7 +4,14 @@
 
 
 <?php $this->begin('content');?>
+    <section class="home text-center">
+        <div class="container">
+            <div class="col-sm-12">
+                <a href="/"><div class="home-logo-wraper hidden-xs"><img src="/static2/css/images/logo-monitoramento-branco.svg?v=1"></div></a>
 
+            </div>
+        </div>
+</section>
 <div class="acao-content-wrap">
     <div class="container">
 

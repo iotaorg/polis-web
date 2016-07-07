@@ -116,28 +116,30 @@
                 </div>
                 <div class="mapa-site-content">
                     <ul class="m-s-ul">
+
                         <li class="m-s-li-principal">
-                            <a href="#">SOBRE</a>
+                            <span>Litoral Sustentável</span>
                             <ul>
-                                <li>
-                                    <a href="#">Sobre</a>
-                                </li>
+                                <li><a target="_blank" href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agenda de desenvolvimento sustentável</a></li>
+                                <li><a target="_blank" href="http://litoralsustentavel.org.br/contato/">Contato</a></li>
                             </ul>
                         </li>
+
                         <li class="m-s-li-principal">
-                            <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">AGENDAS</a>
+                            <span>Polis</span>
                             <ul>
-                                <li>Sobre</li>
+                                <li><a target="_blank" href="http://polis.org.br/institucional/#page_o-que-e-o-polis">O que é</a></li>
+                                <li><a target="_blank" href="http://polis.org.br/contato/">Contato</a></li>
                             </ul>
                         </li>
+
                         <li class="m-s-li-principal">
-                            <a href="http://litoralsustentavel.org.br/contato/">CONTATO</a>
+                            <span>Iota</span>
                             <ul>
-                                <li>
-                                   XXX
-                                </li>
+                                <li><a target="_blank" href="http://eokoe.github.io/Iota/">O que é</a></li>
                             </ul>
                         </li>
+
                     </ul>
                 </div>
             </div>
