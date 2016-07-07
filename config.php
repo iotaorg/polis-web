@@ -1,3 +1,3 @@
 <?php
-define('API_URL', 'http://172.17.0.3');
+define('API_URL', 'http://api_server:5000');
 
