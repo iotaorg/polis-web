@@ -72,7 +72,7 @@
                 </ul>
                 <ul class="menu menu-social">
                     <li>
-                        <a href="/frontend/admin" style="color:#99badc;font-size: 10px">admin</a>
+                        <a href="/frontend/admin" style="opacity:0.3;font-size: 10px">admin</a>
                     </li>
                     <li>
                         <a href="https://www.facebook.com/litoralsustentavel/" title="Facebook"><i class="fa fa-facebook"></i></a>
