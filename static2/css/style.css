@@ -361,40 +361,6 @@ width: 100%; display: block; clear: both;
     margin: 0 0 -19px -24px
 }
 
-/*
-    *****************Carousel Destaque da Home*****************
-*/
-.carousel-destaque-home .carousel-indicators{
-    position: relative!important;
-    text-align: left;
-    left: 35%;
-}
-
-.carousel-indicators li{
-    background-color: #fff;
-    height: 15px;
-    width: 15px;
-    border-radius: 100%;
-    margin: 2px
-}
-
-.carousel-indicators .active{
-    background-color: #2b3087;
-    border: 1px solid #2b3087;
-    height: 17px;
-    width: 17px;
-    border-radius: 100%
-}
-
-.carousel-destaque-home{
-    padding: 40px 0;
-}
-
-.destaque h4{
-    font-size: 20px;
-    margin: 0 0 20px
-}
-
 
 .filtro-eixo{background-color: rgba(28,62,99,1); border-radius: 0; color: #fff; border: 1px solid #ccc; padding: 5px 20px; margin: 0 15px 0 0}
 .acoes{
@@ -641,14 +607,6 @@ a.linkacao div.acao-img-wrap {  }
 }
 
 .menu-texto {font-size:1.3em;}
-.nav-top{
-	background-color: #4d4841;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1030;
-}
 
 .nav-top img{
 	padding: 7px 10px;
@@ -786,19 +744,22 @@ footer .aware a:hover{
 @media (min-width: 768px){
 }
 @media(max-width:979px) {
+    .eixo-wrap {padding-top: 15px}
 }
 @media(max-width:1199px) {
-	.menu-top .menu li{
-		padding: 10px 5px;
-	}
-	.menu-top .menu li a{
-		font-size: 0.8em;
-	}
+    .menu-top .menu li{
+        padding: 10px 5px;
+    }
+    .menu-top .menu li a{
+        font-size: 0.8em;
+    }
 }
+
 @media(max-width:767px) {
-	body{
-		margin-top: 0;
-	}
+    body{
+        margin-top: 69px;
+    }
+    .logos-alinhados {text-align: center;}
 }
 
 .acao-eixo1 {background-image: url(/static2/images/cover/eixo1.jpg?v=1)}
