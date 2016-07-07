@@ -17,9 +17,7 @@
     <link href="/static2/css/font-awesome.css" rel="stylesheet">
     <link href="/static2/css/bootstrap-social.css" rel="stylesheet">
 
-
     <link href="/static2/css/style.css?v=<?=$version?>" rel="stylesheet">
-    <link href="/static2/css/home_style.css?v=<?=$version?>" rel="stylesheet">
 
     <!-- Custom Favicon -->
     <link rel="icon" href="/static2/favicon.ico?v=1.1">
