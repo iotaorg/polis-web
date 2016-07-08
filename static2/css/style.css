@@ -802,9 +802,18 @@ a.linkacao:hover .acao-txt-wrap {
     box-shadow: none;
     border-radius: 0;
 }
+#map {
+    height: 550px;
+}
 @media (max-width: 767px) {
     .nav-top img {
-    width: 233px;}
+    width: 233px;
+   }
+    #map {
+        max-height: 300px !important;
+        height: 300px !important;
+
+    }
 }
 .dropdown-menu a:hover,.dropdown-menu a:active,.dropdown-menu a:visited {
     background-color: transparent !important;

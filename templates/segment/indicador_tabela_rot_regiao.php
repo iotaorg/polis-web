@@ -16,7 +16,7 @@
         <th><?=$l->v?></th>
 
         <? foreach ( $dados->headers as $h ): ?>
-        <td><? $v = @$dados->data->{  $l->k }->{ $h->k }; echo (  is_null($v) ? '-' : $v) ?></td>
+        <td><? $v = empty($dados->data->{  $l->k }->{ $h->k }) ? '' : $dados->data->{  $l->k }->{ $h->k }; echo (  is_null($v) ? '-' : $v) ?></td>
         <?endforeach?>
 
     </tr>

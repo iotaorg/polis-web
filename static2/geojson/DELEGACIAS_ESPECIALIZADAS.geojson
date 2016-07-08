@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Rua Doutor Assis Corrêa, 50, Gonzaga", "Município": "Santos", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -46.331040899999948, -23.961469899999937, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia do Idoso", "Endereço": "Avenida Doutor Roberto de Almeida Vinhas, 11084", "Município": "Praia Grande", "Fonte": "SSP-SP", "Cores": "#DDA0DD", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -46.459379199999944, -24.014872199999957, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Rua Djalma Dutra, 132, Centro", "Município": "São Vicente", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -46.387753499999974, -23.967440499999952, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Vara de Infância e Juventude", "Endereço": "Rua Jacob Emerich, 1367", "Município": "São Vicente", "Fonte": "SSP-SP", "Cores": "#0000FF", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -46.394877399999984, -23.9649406, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Avenida Anchieta, 122, Centro", "Município": "Caraguatatuba", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -45.413178199999948, -23.625515099999962, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Avenida Brasil, 384, Jardim Casqueiro", "Município": "Cubatão", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -46.408932199999981, -23.927915599999952, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Avenida Pugliesi, 656, Centro", "Município": "Guarujá", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -46.258149099999969, -23.992663199999981, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Rua José Veneza Monteiro, 387, São João", "Município": "Peruibe", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -47.005949, -24.325004, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Avenida Monteiro Lobato, 4654, Vila Atlântica", "Município": "Mongaguá", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -46.447749099999953, -24.012049699999977, 0.0 ] } },
+{ "type": "Feature", "properties": { "Nome": "Delegacia da Mulher", "Endereço": "Rua Minas Gerais, 12, Centro", "Município": "Ubatuba", "Fonte": "SSP-SP", "Cores": "#E32636", "Símbolo": "circle" }, "geometry": { "type": "Point", "coordinates": [ -45.080595, -23.436080399999973, 0.0 ] } }
+]
+}

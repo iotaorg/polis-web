@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                                                                  
+"features": [
+{ "type": "Feature", "properties": { "NOME": "Aviação", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.439337699999953, -24.013167, 0.0 ] } },
+{ "type": "Feature", "properties": { "NOME": "Sítio do Campo", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.428866399999947, -24.001504099999977, 0.0 ] } },
+{ "type": "Feature", "properties": { "NOME": "Point 3", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.492166499999939, -24.024358399999983, 0.0 ] } },
+{ "type": "Feature", "properties": { "NOME": "Mirim", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.489248299999986, -24.0295716, 0.0 ] } },
+{ "type": "Feature", "properties": { "NOME": "Lilás", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.565294299999948, -24.065078399999948, 0.0 ] } },
+{ "type": "Feature", "properties": { "NOME": "Maracanã", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.507229799999948, -24.032217299999957, 0.0 ] } },
+{ "type": "Feature", "properties": { "NOME": "Caiçara", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.535725599999978, -24.049520899999948, 0.0 ] } },
+{ "type": "Feature", "properties": { "NOME": "Boqueirão", "MUNICÍPIO": "Praia Grande", "FONTE": "Prefeitura Praia Grande, 2016", "Cores": "#FF4500" }, "geometry": { "type": "Point", "coordinates": [ -46.412531699999931, -24.004954099999964, 0.0 ] } }
+]
+}

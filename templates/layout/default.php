@@ -186,6 +186,7 @@
     <script async src="/static2/js/bootstrap.min.js"></script>
     <?if (!empty($indicadores)):?>
         <script async src="/static2/leaflet/leaflet.js"></script>
+        <script async src="/static2/js/map.js"></script>
     <?endif?>
     <script async src="/static2/js/site.js?v=<?=$version?>"></script>
     <script src="/static2/js/jquery.flot.min.js"></script>

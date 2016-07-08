@@ -2,7 +2,7 @@
 
 <!-- page-title -->
 <?php $this->begin('title');?>
-  Ação <?=$acao->name?>
+  <?=$acao->axis_name?> - <?=$acao->name?>
 <?php $this->end();?>
 
 
@@ -26,17 +26,11 @@
             <h3 class="titulo-mapa"><?= $acao->text_content->txt_titulo_mapa?></h3>
             <h4 class="descricao-mapa"><?= $acao->text_content->txt_descricao_mapa?></h4>
             <div class="row">
-            <div class="col-lg-12 col-md-12">
-            <div class="embed-responsive embed-responsive-3by4">
-            <div class="embed-responsive embed-responsive-3by4">
+                <div class="col-lg-12 col-md-12">
 
+                    <div id="map" style="width: 100%; min-width: 200px; height: 550px"></div>
 
-                <div id="map" style="width: 100%; height: 550px"></div>
-
-
-            </div>
-            </div>
-            </div>
+                </div>
             </div>
         </div>
         <?endif?>
