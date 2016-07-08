@@ -11,7 +11,7 @@
 <tbody>
 </tbody>
 
-<? foreach ( $dados->lines as $l ): ?>
+<? print_r($dados); foreach ( $dados->lines as $l ): ?>
     <tr>
         <th><?=$l->v?></th>
 
