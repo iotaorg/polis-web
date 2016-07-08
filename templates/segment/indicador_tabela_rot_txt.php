@@ -11,7 +11,7 @@
 <tbody>
 </tbody>
 
-<? print_r($dados); foreach ( $dados->lines as $l ): ?>
+<? json_encode($dados); foreach ( $dados->lines as $l ): ?>
     <tr>
         <th><?=$l->v?></th>
 
