@@ -29,7 +29,11 @@
             <div class="col-lg-12 col-md-12">
             <div class="embed-responsive embed-responsive-3by4">
             <div class="embed-responsive embed-responsive-3by4">
-            mapa lento vinha aqui...
+
+
+                <div id="map" style="width: 100%; height: 550px"></div>
+
+
             </div>
             </div>
             </div>

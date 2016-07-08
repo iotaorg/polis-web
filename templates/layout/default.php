@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><?$version='108'?>
+<head><?$version='109'?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +31,10 @@
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/static2/js/excanvas.min.js"></script><![endif]-->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,900,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <noscript><style> .jsonly { display: none } </style></noscript>
+
+    <?if (!empty($indicadores)):?>
+        <link href="/static2/leaflet/leaflet.css" rel="stylesheet">
+    <?endif?>
 </head>
 <body id="page-top" class="index">
 
@@ -180,6 +184,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script async src="/static2/js/jquery.easing.1.3.js"></script>
     <script async src="/static2/js/bootstrap.min.js"></script>
+    <?if (!empty($indicadores)):?>
+        <script async src="/static2/leaflet/leaflet.js"></script>
+    <?endif?>
     <script async src="/static2/js/site.js?v=<?=$version?>"></script>
     <script src="/static2/js/jquery.flot.min.js"></script>
 
