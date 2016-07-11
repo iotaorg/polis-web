@@ -141,6 +141,7 @@ jQuery(document).ready(function($) {
             $.each(current_geometries, function(current_level, geometry_name){
                 $.ajax({
                     url: '/static2/geojson/'+geometry_name+'.geojson',
+                    cache:false,
                     async:false, // vai sair, eu juro!
                     success: function(e) {
 
