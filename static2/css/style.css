@@ -821,3 +821,6 @@ a.linkacao:hover .acao-txt-wrap {
 .content-pagina {
     min-height: 300px
 }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    overflow: auto;
+}

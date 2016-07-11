@@ -74,7 +74,7 @@ jQuery(document).ready(function($) {
                     delete feature.properties.Cores;
                 }
 
-                if (feature.properties.color && feature.geometry.type == 'Polygon') {
+                if (feature.properties.stroke && feature.geometry.type == 'Polygon') {
                     feature.properties.fillColor = feature.properties.stroke;
                 } else if (feature.properties.cores && feature.geometry.type == 'LineString') {
                     feature.properties.color = feature.properties.cores;
@@ -82,10 +82,6 @@ jQuery(document).ready(function($) {
                     feature.properties.fillColor = feature.properties.cores;
                 }
 
-                if (feature.properties.fillColor == '#D3D3D3') {
-                    feature.properties.fillColor = 'red';
-                    feature.properties.fillOpacity = 0.8;
-                }
 
                 if (feature.properties.opacidade) {
                     feature.properties.fillOpacity = feature.properties.opacidade.replace(',', '.') * 1;
@@ -102,7 +98,19 @@ jQuery(document).ready(function($) {
             var popupContent = "";
 
             if (feature.properties && feature.properties.PopupInfo) {
-                popupContent += feature.properties.PopupInfo;
+                popupContent += feature.properties.PopupInfo + "<br/>";
+                delete feature.properties.PopupInfo;
+            }
+            delete feature.properties.id;
+            delete feature.properties.Id;
+            delete feature.properties.OID_;
+
+            $.each(feature.properties, function(i, e) {
+                popupContent += "<strong>" + i + "</strong>: <span>" + e + "</span><br/>";
+            });
+
+            if (!popupContent ){
+                popupContent = JSON.stringfy(feature.properties)
             }
 
             layer.bindPopup(popupContent);
@@ -128,17 +136,21 @@ jQuery(document).ready(function($) {
 
 
 
-            $.each(current_geometries, function(i, geometry_name){
-                _maps_total++;
+            _maps_total = current_geometries.length;
+
+            $.each(current_geometries, function(current_level, geometry_name){
                 $.ajax({
                     url: '/static2/geojson/'+geometry_name+'.geojson',
+                    async:false, // vai sair, eu juro!
                     success: function(e) {
 
                         _maps_loaded++;
+
                         var something = L.geoJson(e, {
                             style: onStyleFeature,
                             onEachFeature: onEachFeature,
-                            pointToLayer: onPointToLayer
+                            pointToLayer: onPointToLayer,
+                            zIndex: current_level,
                         });
                         something.addTo(map);
 

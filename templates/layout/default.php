@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><?$version='111'?>
+<head><?$version='112'?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -185,7 +185,7 @@
     <script async src="/static2/js/jquery.easing.1.3.js"></script>
     <script async src="/static2/js/bootstrap.min.js"></script>
     <?if (!empty($indicadores)):?>
-        <script async src="/static2/leaflet/leaflet.js"></script>
+        <script src="/static2/leaflet/leaflet.js"></script>
         <script async src="/static2/js/map.js?v=<?=$version?>"></script>
     <?endif?>
     <script async src="/static2/js/site.js?v=<?=$version?>"></script>
