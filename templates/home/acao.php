@@ -8,7 +8,7 @@
 
 <?php $this->begin('content');?>
 
-<section class="home acao-home acao-eixo<? $eixo= preg_replace('/[^0-9]*/', '', $acao->axis_name); echo $eixo ?>">
+<section data-codigo-acao="<?=$acao->eixo_acao?>" class="home acao-home acao-eixo<? $eixo= preg_replace('/[^0-9]*/', '', $acao->axis_name); echo $eixo ?>">
     <div class="container">
         <div class="acao-header-title-wrap">
             <a href="/?eixo=<?=$eixo?>"><img src="/static2/images/eixo<?= $eixo ?>.png" alt="Icone para <?= $acao->axis_name ?>"></a>
