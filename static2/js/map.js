@@ -133,7 +133,7 @@ jQuery(document).ready(function($) {
                 attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a> ♥, ' +
                     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                     'Imagens © <a href="http://mapbox.com">Mapbox</a>',
-                id: 'mapbox.streets'
+                id: 'mapbox.satellite'
             }).addTo(map);
 
 

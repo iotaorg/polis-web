@@ -1,9 +1,7 @@
 <?php $this->extend('layout/default.php');?>
 
 <!-- page-title -->
-<?php $this->begin('title');?>
-  <?=$acao->axis_name?> - <?=$acao->name?>
-<?php $this->end();?>
+<?php $this->begin('title');?><?=$acao->name?><?php $this->end();?>
 
 
 <?php $this->begin('content');?>
@@ -12,7 +10,7 @@
     <div class="container">
         <div class="acao-header-title-wrap">
             <a href="/?eixo=<?=$eixo?>"><img src="/static2/images/eixo<?= $eixo ?>.png" alt="Icone para <?= $acao->axis_name ?>"></a>
-            <h1><small><?=$acao->axis_name?></small> <?=$acao->name?></h1>
+            <h1><?=$acao->name?></h1>
             <p><?=$acao->description?></p>
         </div>
     </div>
