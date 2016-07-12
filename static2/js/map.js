@@ -76,6 +76,8 @@ jQuery(document).ready(function($) {
 
                 if (feature.properties.stroke && feature.geometry.type == 'Polygon') {
                     feature.properties.fillColor = feature.properties.stroke;
+                    feature.properties.color = feature.properties.stroke;
+                    feature.properties.stroke=true;
                 } else if (feature.properties.cores && feature.geometry.type == 'LineString') {
                     feature.properties.color = feature.properties.cores;
                 } else if (feature.properties.cores) {
@@ -141,7 +143,6 @@ jQuery(document).ready(function($) {
             $.each(current_geometries, function(current_level, geometry_name){
                 $.ajax({
                     url: '/static2/geojson/'+geometry_name+'.geojson',
-                    cache:false,
                     async:false, // vai sair, eu juro!
                     success: function(e) {
 

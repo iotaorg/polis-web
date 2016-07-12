@@ -39,7 +39,7 @@
         <div class="acao-acordeon">
             <div aria-multiselectable="true" class="panel-group" id="accordion-acao" role="tablist">
                 <?php $cont=0; foreach ( array (
-                    "txt_info_qualitativas" => 'Informações qualitativas',
+                    "txt_info_qualitativas" => 'Informações Qualitativas',
                     "txt_condicionantes"    => 'Condicionantes ambientais',
                     "txt_focos"             => "Focos e Perguntas Orientadoras",
                 ) as $key => $value ): $cont++; if ( @$acao->text_content->$key == '' ) continue ?>
