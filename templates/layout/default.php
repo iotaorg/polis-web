@@ -43,7 +43,7 @@
         <div class="row">
                 <ul class="menu menu-texto">
                     <li class="page-scroll">
-                        <a href="/">Home</a>
+                        <a href="/">Início</a>
                     </li>
 <?php $this->begin('menu');?>
 <?foreach ($menus as $v):?>

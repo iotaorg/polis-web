@@ -28,7 +28,7 @@
                             </div>
                             <div class="eixo-txt">
                                 <span class="eixo-title">EIXO 1</span>
-                                <p class="eixo-paragrafo">DESENVOLVIMENTO SUSTENTAVEL E ENVOLVENTE</p>
+                                <p class="eixo-paragrafo">DESENVOLVIMENTO SUSTENTAVEL E INCLUDENTE</p>
                             </div>
                     </section>
                     <section data-eixo=2 class="eixo-wrap col-lg-4 col-md-4 col-sm-12">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="eixo-txt">
                             <span class="eixo-title">EIXO 2</span>
-                            <p class="eixo-paragrafo">USO SUSTENTAVEL DAS AREAS PROTEGIDAS</p>
+                            <p class="eixo-paragrafo">USO SUSTENTÁVEL DAS ÁREAS PROTEGIDAS</p>
                         </div>
                     </section>
                     <section data-eixo=3 class=" eixo-wrap col-lg-4 col-md-4 col-sm-12">
@@ -54,7 +54,7 @@
                         </div>
                         <div class="eixo-txt">
                             <span class="eixo-title">EIXO 3</span>
-                            <p class="eixo-paragrafo">DEMOCARTIZAÇÃO DO TERIITÓRIO E INCLUSÃO SOCIAL</p>
+                            <p class="eixo-paragrafo">DEMOCARTIZAÇÃO DO TERRITÓRIO E INCLUSÃO SOCIAL</p>
                         </div>
                     </section>
             </div>
@@ -69,14 +69,14 @@
 
                 <div class="container">
 
-                 <h2>AÇÕES</h2>
+                 <h2>AÇÕES ESTRATÉGICAS</h2>
 
                     <section class="filtros-eixos-wrap">
-                        <form id="busca_acoes" class="busca-acoes">
+                        <div id="busca_acoes" class="busca-acoes">
                             <div class="form-group">
-                                <input type="text" class="form-control srch-term " placeholder="Buscar ações...">
+                                <input type="text" class="form-control srch-term " placeholder="Digite um tema para encontrar uma Ação Estratégica">
                             </div>
-                        </form>
+                        </div>
                         <div class="search-info">
                             <p id="stxt">Exibindo <?=sizeof($acoes)?> ações</p>
                         </div>
