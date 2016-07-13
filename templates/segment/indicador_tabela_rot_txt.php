@@ -2,7 +2,7 @@
 <table class="table table-bordered table-condensed table-striped table-hover">
 <thead>
 <tr>
-    <th>Região</th>
+    <th>Município</th>
     <? foreach ( $dados->headers as $h ): ?>
         <th title="<?=$h->name?>"><?=$h->v?></th>
     <?endforeach?>

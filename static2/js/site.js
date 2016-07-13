@@ -119,7 +119,7 @@ jQuery(document).ready(function($) {
 
     /* carregar dados indicadores */
 
-    var $indicadores = $('.tab-indicador'),
+    var id_seq=0, $indicadores = $('.tab-indicador'),
         _carrega_tabela_indicador = function(e) {
 
             var $self = $(e),
@@ -180,6 +180,16 @@ jQuery(document).ready(function($) {
             var $graph_div = choiceContainer.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-10"></div>').find('.b');
             choiceContainer.find("input").click(plotAccordingToChoices);
 
+            $("<div id='tooltip'></div>").css({
+                position: "absolute",
+                display: "none",
+                border: "1px solid #1c72ca",
+                "font-weight": "700",
+                padding: "3px",
+                color: "white",
+                "background-color": "#6fa7e0"
+            }).appendTo("body");
+
 
             function plotAccordingToChoices() {
 
@@ -193,6 +203,8 @@ jQuery(document).ready(function($) {
                 });
 
                 if (data.length > 0) {
+                    $graph_div.attr('id', 'id_' + id_seq++);
+
                     var plot = $.plot($graph_div, data, {
                         yaxis: {
                             autoscaleMargin: 0.5
@@ -205,13 +217,32 @@ jQuery(document).ready(function($) {
                                 show: true
                             }
                         },
+                        grid: {
+                            hoverable: true
+                        },
                         legend: {
                             noColumns: 2
                         },
                         xaxis: {
-                            tickDecimals: 2
+                            tickDecimals: 0
                         }
                     });
+
+                      $('#' + $graph_div.attr('id')).bind("plothover", function (event, pos, item) {
+
+                        if (item) {
+                            var x = item.datapoint[0],
+                                y = item.datapoint[1];
+
+                            $("#tooltip").html(item.series.label + " = " + y)
+                                .css({top: item.pageY-28, left: item.pageX+5})
+                                .fadeIn(200);
+                        } else {
+                            $("#tooltip").hide();
+                        }
+
+                    });
+
                 }
 
             }

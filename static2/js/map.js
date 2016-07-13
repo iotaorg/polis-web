@@ -74,9 +74,11 @@ jQuery(document).ready(function($) {
                     delete feature.properties.Cores;
                 }
 
-                if (feature.properties.stroke && feature.geometry.type == 'Polygon') {
+                if (feature.properties.stroke  ) {
                     feature.properties.fillColor = feature.properties.stroke;
-                    feature.properties.color = feature.properties.stroke;
+                    if (!feature.properties.color){
+                        feature.properties.color = feature.properties.stroke;
+                    }
                     feature.properties.stroke=true;
                 } else if (feature.properties.cores && feature.geometry.type == 'LineString') {
                     feature.properties.color = feature.properties.cores;
@@ -106,6 +108,11 @@ jQuery(document).ready(function($) {
             delete feature.properties.id;
             delete feature.properties.Id;
             delete feature.properties.OID_;
+            delete feature.properties.stroke;
+            delete feature.properties.color;
+            delete feature.properties.fillColor;
+            delete feature.properties.fillOpacity;
+            delete feature.properties.opacity;
 
             $.each(feature.properties, function(i, e) {
                 popupContent += "<strong>" + i + "</strong>: <span>" + e + "</span><br/>";
@@ -126,10 +133,10 @@ jQuery(document).ready(function($) {
 
             map = L.map('map', {
                 //scrollWheelZoom: false
-            }).setView([-23.822101938, -45.922569491], 10);
+            }).setView([-23.822101938, -45.922569491], 8);
 
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicG9saXMiLCJhIjoiY2lxZTZ0eG95MDMxNGZ0bnA0cXE5M2M0MiJ9.jgv8oBeRDaodz9Acb6ZC-w', {
-                maxZoom: 18,
+                maxZoom: 16,
                 attribution: '<a href="http://openstreetmap.org">OpenStreetMap</a> ♥, ' +
                     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                     'Imagens © <a href="http://mapbox.com">Mapbox</a>',
@@ -143,7 +150,6 @@ jQuery(document).ready(function($) {
             $.each(current_geometries, function(current_level, geometry_name){
                 $.ajax({
                     url: '/static2/geojson/'+geometry_name+'.geojson',
-                    async:false, // vai sair, eu juro!
                     success: function(e) {
 
                         _maps_loaded++;
@@ -176,7 +182,7 @@ jQuery(document).ready(function($) {
 
     /* mapa */
     if ($('#map')[0] && codigo_acao) {
-        init_map();
+        setTimeout(init_map, 500);
     }
 
 
