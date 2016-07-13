@@ -85,10 +85,14 @@ jQuery(document).ready(function($) {
                 } else if (feature.properties.cores) {
                     feature.properties.fillColor = feature.properties.cores;
                 }
-
+                if (feature.properties.fill) {
+                    feature.properties.fillColor = feature.properties.fill;
+                    delete feature.properties.fill;
+                }
 
                 if (feature.properties.opacidade) {
                     feature.properties.fillOpacity = feature.properties.opacidade.replace(',', '.') * 1;
+                    delete feature.properties.opacidade;
                 }
 
 
@@ -100,7 +104,7 @@ jQuery(document).ready(function($) {
 
         onEachFeature = function(feature, layer) {
             var popupContent = "";
-
+            var oxe = JSON.stringify(feature);
             if (feature.properties && feature.properties.PopupInfo) {
                 popupContent += feature.properties.PopupInfo + "<br/>";
                 delete feature.properties.PopupInfo;
@@ -117,10 +121,6 @@ jQuery(document).ready(function($) {
             $.each(feature.properties, function(i, e) {
                 popupContent += "<strong>" + i + "</strong>: <span>" + e + "</span><br/>";
             });
-
-            if (!popupContent ){
-                popupContent = JSON.stringfy(feature.properties)
-            }
 
             layer.bindPopup(popupContent);
         },
