@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 
     var map = undefined,
         mapa_config = {
-            "1A": ["LIMITES_MUNICIPAIS", "GE_PONTO", "GE_LINHA", "GE_POLIGONO"],
+            "1A": ["LIMITES_MUNICIPAIS", "GE_PTO", "GE_LIN", "GE_POL"],
             "1B": ["LIMITES_MUNICIPAIS"],
             "1C": ["LIMITES_MUNICIPAIS"],
             "1D": ["LIMITES_MUNICIPAIS", "RSCC_PRAIAGRANDE"],
@@ -53,22 +53,24 @@ jQuery(document).ready(function($) {
 
         onPointToLayer = function(feature, latlng) {
             return L.circleMarker(latlng, {
-                radius: 8,
-                fillColor: feature.properties.Cores ? feature.properties.Cores : "#ff7800",
-                color: feature.properties.Cores ? feature.properties.Cores : "#000",
-                weight: 1,
-                opacity: 1,
-                fillOpacity: 0.8
+                radius: feature.properties.WEIGHT || 8,
+                fillColor: feature.properties.CORES ? feature.properties.CORES : "#ff7800",
+                color: feature.properties.COLOR ? feature.properties.COLOR : "#000",
+                weight: feature.properties.WEIGHT || 1,
+                opacity: feature.properties.OPACITY ? feature.properties.OPACITY.replace(',', '.')*1 : 1,
+                fillOpacity: feature.properties.OPACIDADE ? feature.properties.OPACIDADE.replace(',', '.')*1 : 0.8
             });
         },
         onStyleFeature = function(feature) {
 
             if (feature.properties) {
 
-                feature.properties.fillOpacity = 0.2;
+                if (feature.properties.OPACIDADE)
+                    feature.properties.OPACIDADE = feature.properties.OPACIDADE.replace(',', '.') * 1
 
-                if (feature.geometry.type == 'LineString')
-                    feature.properties.weight = 8;
+                if (feature.properties.OPACITY)
+                    feature.properties.OPACITY = feature.properties.OPACITY.replace(',', '.') * 1
+
                 if (feature.properties.Cores) {
                     feature.properties.cores = feature.properties.Cores;
                     delete feature.properties.Cores;
@@ -95,6 +97,35 @@ jQuery(document).ready(function($) {
                     delete feature.properties.opacidade;
                 }
 
+                if (feature.properties.OPACITY) {
+                    feature.properties.opacity = feature.properties.OPACITY;
+                    delete feature.properties.OPACITY;
+                }
+                if (feature.properties.OPACIDADE) {
+                    feature.properties.fillOpacity = feature.properties.OPACIDADE;
+                    delete feature.properties.OPACIDADE;
+                }
+
+                if (feature.properties.COLOR) {
+                    feature.properties.color = feature.properties.COLOR;
+                    delete feature.properties.COLOR;
+                }
+
+                if (feature.properties.CORES) {
+                    feature.properties.fillColor = feature.properties.CORES;
+                    delete feature.properties.CORES;
+                }
+
+                if (feature.properties.STROKE) {
+                    feature.properties.stroke = feature.properties.STROKE ? true : false;
+                    delete feature.properties.STROKE;
+                }
+
+                if (feature.properties.WEIGHT) {
+                    feature.properties.weight = feature.properties.WEIGHT;
+                    delete feature.properties.WEIGHT;
+                }
+
 
 
             }
@@ -117,6 +148,7 @@ jQuery(document).ready(function($) {
             delete feature.properties.fillColor;
             delete feature.properties.fillOpacity;
             delete feature.properties.opacity;
+            delete feature.properties.weight;
 
             $.each(feature.properties, function(i, e) {
                 popupContent += "<strong>" + i + "</strong>: <span>" + e + "</span><br/>";
@@ -149,7 +181,7 @@ jQuery(document).ready(function($) {
 
             $.each(current_geometries, function(current_level, geometry_name){
                 $.ajax({
-                    url: '/static2/geojson/'+geometry_name+'.geojson',
+                    url: '/static2/geojson/'+geometry_name+'.geojson?v=1',
                     success: function(e) {
 
                         _maps_loaded++;
