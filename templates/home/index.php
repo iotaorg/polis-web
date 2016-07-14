@@ -28,7 +28,7 @@
                             </div>
                             <div class="eixo-txt">
                                 <span class="eixo-title">EIXO 1</span>
-                                <p class="eixo-paragrafo">DESENVOLVIMENTO SUSTENTAVEL E INCLUDENTE</p>
+                                <p class="eixo-paragrafo">DESENVOLVIMENTO SUSTENTÁVEL E INCLUDENTE</p>
                             </div>
                     </section>
                     <section data-eixo=2 class="eixo-wrap col-lg-4 col-md-4 col-sm-12">
