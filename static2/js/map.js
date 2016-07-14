@@ -389,6 +389,7 @@ jQuery(document).ready(function($) {
                         });
                         something.addTo(map);
 
+
                         if (_maps_loaded == _maps_total){
                             bestFitZoom();
                         }

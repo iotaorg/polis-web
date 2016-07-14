@@ -11,13 +11,22 @@
 <tbody>
 </tbody>
 
-<? foreach ( $dados->lines as $l ): ?>
+<?
+$color = array(
+'#FFF' => '#000',
+'#000' => '#FFF',
+'#d21b1b' => '#FFF',
+'#FE9753' => '#000',
+'#E2F98E' => '#000',
+'#219859' => '#FFF');
+
+foreach ( $dados->lines as $l ): ?>
     <tr>
         <th><?=$l->v?></th>
 
         <? foreach ( $dados->headers as $h ): $v = empty($dados->data->{  $l->k }->{ $h->k }) ? '' : $dados->data->{  $l->k }->{ $h->k }; $c=  empty($dados->variable_colors->{$h->k}->$v) ? '' : $dados->variable_colors->{$h->k}->$v?>
 
-        <td <?if($c):?>style="background-color: <?=$c?>; color:<?=$c ?>;" ><span class="invert"><?else:?><span><?endif?><? echo (  is_null($v) ? '-' : $v) ?></span></td>
+        <td <?if($c):?>style="background-color: <?=$c?>; color:<?= $color[$c] ?>;" ><?endif?><? echo (  is_null($v) ? '-' : $v) ?></td>
         <?endforeach?>
 
     </tr>
