@@ -1,5 +1,11 @@
 <div class="table-responsive">
 <table class="table table-bordered table-condensed table-striped table-hover">
+<colgroup>
+<col/>
+    <? foreach ( $dados->headers as $h ): ?>
+        <col style="width: 80px"/>
+    <?endforeach?>
+</colgroup>
 <thead>
 <tr>
     <th>Município</th>
