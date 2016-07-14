@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><?$version='115'?>
+<head><?$version='116'?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -185,6 +185,7 @@
     <script async src="/static2/js/jquery.easing.1.3.js"></script>
     <script async src="/static2/js/bootstrap.min.js"></script>
     <?if (!empty($indicadores)):?>
+        <script src="http://maps.google.com/maps/api/js?v=3&key=AIzaSyDFhR02Wnznu904PZ0mQVUdU_6pUoCmVAo"></script>
         <script src="/static2/leaflet/leaflet.js"></script>
         <script async src="/static2/js/map.js?v=<?=$version?>"></script>
     <?endif?>
