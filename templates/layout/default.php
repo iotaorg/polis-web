@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><?$version='119'?>
+<head><?$version='120'?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -96,7 +96,7 @@
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
         <i class="fa fa-bars"></i>
     </button>
-    <a href="/"><img src="/static2/css/images/logo-monitoramento-branco.svg" border="0"></a>
+    <a href="/"><img src="/static2/css/images/logo-monitoramento-branco.svg?v=1" border="0"></a>
     <div class="navbar-menu collapse">
         <ul>
             <?php $this->block('menu');?>
