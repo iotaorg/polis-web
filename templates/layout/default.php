@@ -96,7 +96,7 @@
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
         <i class="fa fa-bars"></i>
     </button>
-    <a href="/"><img src="/static2/css/images/logo-monitoramento-branco.svg?v=1" border="0"></a>
+    <a href="/"><img src="/static2/css/images/logo-monitoramento-branco.svg?v=5" border="0"></a>
     <div class="navbar-menu collapse">
         <ul>
             <?php $this->block('menu');?>
