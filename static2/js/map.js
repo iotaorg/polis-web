@@ -355,6 +355,7 @@ jQuery(document).ready(function($) {
             delete feature.properties.fillOpacity;
             delete feature.properties.opacity;
             delete feature.properties.weight;
+            delete feature.properties.cores;
 
             $.each(feature.properties, function(i, e) {
                 popupContent += "<strong>" + i + "</strong>: <span>" + e + "</span><br/>";
