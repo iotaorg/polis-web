@@ -402,9 +402,9 @@ jQuery(document).ready(function($) {
                             onEachFeature: onEachFeature,
                             pointToLayer: onPointToLayer,
                         });
+                        something.setZIndex(current_level);
 
                         _loaded_layers[current_level] = {name : geometry_name, group : something};
-
                         var _control_layer = {};
                         $.each(_loaded_layers, function(i, e){
 
