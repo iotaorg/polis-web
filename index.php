@@ -20,7 +20,13 @@ error_reporting(E_ALL | E_STRICT);
  */
 function my_file_get_contents($url)
 {
-    return file_get_contents(API_URL . $url);
+    $test = @file_get_contents(API_URL . $url);
+
+    if (!$test){
+        print "<center><h1>Problemas de conexão com a API... <br/><br/>Tente novamente em alguns segundos</h1></center>";
+        exit;
+    }
+    return $test;
 }
 function make_menu()
 {

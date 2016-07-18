@@ -94,16 +94,16 @@ jQuery(document).ready(function($) {
         _click_to_filter = function() {
             var $me = $(this);
             $search.val('eixo ' + $me.attr('data-eixo')).trigger('keyup');
-            var target = $( '.filtros-eixos-wrap' );
+            var target = $('.filtros-eixos-wrap');
 
-            if( target.length ) {
+            if (target.length) {
                 event.preventDefault();
 
                 if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
                     window.setTimeout(function() {
-                        window.scrollTo(0,target.offset().top - 69)
-                    },0);
-                }else{
+                        window.scrollTo(0, target.offset().top - 69)
+                    }, 0);
+                } else {
                     $('html, body').animate({
                         scrollTop: target.offset().top - 69
                     }, 500);
@@ -113,13 +113,14 @@ jQuery(document).ready(function($) {
     $eixo_wrap.on('click', _click_to_filter);
     // ativa o eixo caso venha no parametro
     if (eixo_num)
-        $eixo_wrap.filter('[data-eixo="'+eixo_num+'"]').click();
+        $eixo_wrap.filter('[data-eixo="' + eixo_num + '"]').click();
 
     /* fianl filtro pelo eixo*/
 
     /* carregar dados indicadores */
 
-    var id_seq=0, $indicadores = $('.tab-indicador'),
+    var id_seq = 0,
+        $indicadores = $('.tab-indicador'),
         _carrega_tabela_indicador = function(e) {
 
             var $self = $(e),
@@ -191,6 +192,9 @@ jQuery(document).ready(function($) {
             }).appendTo("body");
 
 
+            var prepend_to_result = graph.indicator.prepend_on_result,
+                append_to_result = graph.indicator.append_on_result;
+
             function plotAccordingToChoices() {
 
                 var data = [];
@@ -207,7 +211,12 @@ jQuery(document).ready(function($) {
 
                     var plot = $.plot($graph_div, data, {
                         yaxis: {
-                            autoscaleMargin: 0.5
+                            autoscaleMargin: 0.5,
+                            tickFormatter: function(v) {
+                                return (prepend_to_result ? '<sub>' + prepend_to_result + '</sub> ' : '') +
+                                       (v.toLocaleString ? v.toLocaleString() : v) +
+                                       (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
+                            },
                         },
                         series: {
                             lines: {
@@ -228,14 +237,19 @@ jQuery(document).ready(function($) {
                         }
                     });
 
-                      $('#' + $graph_div.attr('id')).bind("plothover", function (event, pos, item) {
+                    $('#' + $graph_div.attr('id')).bind("plothover", function(event, pos, item) {
 
                         if (item) {
                             var x = item.datapoint[0],
-                                y = item.datapoint[1];
+                                y = (prepend_to_result ?  prepend_to_result + ' ' : '') +
+                                       (item.datapoint[1].toLocaleString ? item.datapoint[1].toLocaleString() : item.datapoint[1]) +
+                                       (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
 
                             $("#tooltip").html(item.series.label + " = " + y)
-                                .css({top: item.pageY-28, left: item.pageX+5})
+                                .css({
+                                    top: item.pageY - 28,
+                                    left: item.pageX + 5
+                                })
                                 .fadeIn(200);
                         } else {
                             $("#tooltip").hide();
@@ -249,8 +263,8 @@ jQuery(document).ready(function($) {
 
             plotAccordingToChoices();
 
-            $(window).bind('resize', debounce(function (){
-                    plotAccordingToChoices();
+            $(window).bind('resize', debounce(function() {
+                plotAccordingToChoices();
             }, 100))
 
             //$search.on('keyup', debounce(_ajax_acoes, 150));
