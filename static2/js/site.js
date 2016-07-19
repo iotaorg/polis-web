@@ -125,14 +125,16 @@ jQuery(document).ready(function($) {
 
             var $self = $(e),
                 id = $self.attr('data-id'),
-                vt = $self.attr('data-variable-type');
+                vt = $self.attr('data-variable-type'),
+                tp = $self.attr('data-template');
 
             $.ajax({
                 url: '/ajax/indicador_tabela_rot_regiao',
                 data: {
                     id: id,
                     variable_type: vt,
-                    js: 1
+                    js: 1,
+                    template_name: tp
                 },
                 dataType: "html",
             }).success(function(e) {

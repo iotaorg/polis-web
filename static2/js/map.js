@@ -428,7 +428,8 @@ jQuery(document).ready(function($) {
                         if (_maps_loaded == _maps_total) {
                             bestFitZoom();
                         }
-                        alert("erro ao carregar mapa [" + geometry_name + "]");
+
+                        $('#map').parent().append("<p>erro ao carregar mapa [" + geometry_name + "]</p>");
                     },
                     dataType: 'json'
                 });

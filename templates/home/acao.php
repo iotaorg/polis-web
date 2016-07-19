@@ -68,7 +68,7 @@
                     <dt>Descrição da Fórmula</dt><dd> <?=$i->descricao_formula?></dd>
                     <dt>Nossa leitura</dt><dd> <?=$i->nossa_leitura?></dd>
                 </dl>
-                <iframe width="100%" style="border:none" height=400 src="/ajax/indicador_tabela_rot_regiao?id=<?=urlencode($i->id)?>&amp;variable_type=<?=$i->variable_type?>">
+                <iframe width="100%" style="border:none" height=400 src="/ajax/indicador_tabela_rot_regiao?id=<?=urlencode($i->id)?>&amp;variable_type=<?=$i->variable_type?>&amp;template_name=<?=urlencode($acao->template_name)?>">
                 </iframe>
             </noscript>
 
@@ -85,7 +85,7 @@
               </ul>
 
               <!-- Tab panes -->
-              <div class="tab-content tab-indicador loading" data-variable-type="<?=$i->variable_type?>" data-id="<?=$i->id?>">
+              <div class="tab-content tab-indicador loading" data-template="<?=htmlentities($acao->template_name)?>" data-variable-type="<?=$i->variable_type?>" data-id="<?=$i->id?>">
                 <?if (!(@$i->variable_type == 'str')): ?>
                 <div role="tabpanel" class="tab-pane graph active "  id="visualizacao<?=$i->id?>">
                     <h4 class="text-center">Carregando gráficos...</h4>

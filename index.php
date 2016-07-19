@@ -93,7 +93,7 @@ class Polis
 
             $variable_type = @$_GET['variable_type'] == 'str' ? 'indicador_tabela_rot_txt' : 'indicador_tabela_rot_regiao';
 
-            $valores = my_file_get_contents("/polis/$variable_type/" . urlencode(@$_GET['id']));
+            $valores = my_file_get_contents("/polis/$variable_type/" . urlencode(@$_GET['id']) . '?template_name='.urlencode(@$_GET['template_name']));
             echo self::render("/segment/$variable_type.php", ['dados' => json_decode($valores), 'json' => $valores, 'js' => @$_GET['js'] ]);
         });
 
