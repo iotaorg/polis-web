@@ -32,7 +32,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,900,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <noscript><style> .jsonly { display: none } </style></noscript>
 
-    <?if (!empty($indicadores)):?>
+    <?if (!empty($acao)):?>
         <link href="/static2/leaflet/leaflet.css" rel="stylesheet">
     <?endif?>
 </head>
@@ -184,7 +184,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script async src="/static2/js/jquery.easing.1.3.js"></script>
     <script async src="/static2/js/bootstrap.min.js"></script>
-    <?if (!empty($indicadores)):?>
+    <?if (!empty($acao)):?>
         <script src="http://maps.google.com/maps/api/js?v=3&key=AIzaSyDFhR02Wnznu904PZ0mQVUdU_6pUoCmVAo"></script>
         <script src="/static2/leaflet/leaflet.js"></script>
         <script async src="/static2/js/map.js?v=<?=$version?>"></script>
