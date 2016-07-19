@@ -32,7 +32,7 @@ foreach ( $dados->lines as $l ): ?>
 
         <? foreach ( $dados->headers as $h ): $v = empty($dados->data->{  $l->k }->{ $h->k }) ? '' : $dados->data->{  $l->k }->{ $h->k }; $c=  empty($dados->variable_colors->{$h->k}->$v) ? '' : $dados->variable_colors->{$h->k}->$v?>
 
-        <td><?if($c):?>style="background-color: <?=$c?>; color:<?= $color[$c] ?>;"<?endif?><? echo (  is_null($v) ? '-' : $v) ?></td>
+        <td <?if($c):?>style="background-color: <?=$c?>; color:<?= $color[$c] ?>;"<?endif?>><? echo (  is_null($v) ? '-' : $v) ?></td>
         <?endforeach?>
 
     </tr>
