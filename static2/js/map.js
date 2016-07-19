@@ -216,12 +216,12 @@ jQuery(document).ready(function($) {
             "1G": ["LIMITES_MUNICIPAIS"],
             "1H": ["LIMITES_MUNICIPAIS"],
             "1I": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "TURISMO_BASE_COMUNITARIA"],
-            "2A": ["LIMITES_MUNICIPAIS", "UC_CLASSIFICADA", "PERIMETROS_MARCEL"],
-            "2B": ["LIMITES_MUNICIPAIS", "UC_CLASSIFICADA"],
+            "2A": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO_CLASSE", "PERIMETROS_MARCEL"],
+            "2B": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO_CLASSE"],
             "2C": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "COMUNIDADES_PESQUEIRAS"],
             "2D": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "PCT", "TERRAS_DEMARCADAS"],
             "2E": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "TERRAS_DEMARCADAS"],
-            "2F": ["LIMITES_MUNICIPAIS", "ZEIS"],
+            "2F": ["LIMITES_MUNICIPAIS", "ZEIS_UC"],
             "2G": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "CONFLITOS"],
             "3A": ["LIMITES_MUNICIPAIS", "LINHAS_EMTU", "CICLOVIAS"],
             "3B": ["LIMITES_MUNICIPAIS"],
@@ -230,10 +230,10 @@ jQuery(document).ready(function($) {
             "3E": ["LIMITES_MUNICIPAIS", "RISCO_ESCORREGAMENTO", "RISCO_INUNDACAO"],
             "3F": ["LIMITES_MUNICIPAIS"],
             "3G": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "PRAIAS_MONITORADAS"],
-            "3H": ["LIMITES_MUNICIPAIS", "ZEIS"],
-            "3I": ["LIMITES_MUNICIPAIS"],
-            "3J": ["LIMITES_MUNICIPAIS"],
-            "3K": ["LIMITES_MUNICIPAIS"],
+            "3H": ["LIMITES_MUNICIPAIS", "ZEIS_VAZIAS"],
+            "3I": ["LIMITES_MUNICIPAIS", "ZEIS"],
+            "3J": ["LIMITES_MUNICIPAIS", "ZEIS_OCUPADAS", "ASSENTAMENTOS_PRECARIOS"],
+            "3K": ["LIMITES_MUNICIPAIS", "ZEIS_OCUPADAS", "ASSENTAMENTOS_PRECARIOS"],
             "3L": ["LIMITES_MUNICIPAIS", "CULTURA"],
             "3M": ["LIMITES_MUNICIPAIS"],
             "3N": ["LIMITES_MUNICIPAIS"]
@@ -392,7 +392,7 @@ jQuery(document).ready(function($) {
 
             $.each(current_geometries, function(current_level, geometry_name) {
                 $.ajax({
-                    url: '/static2/geojson/' + geometry_name + '.geojson?v=1',
+                    url: '/static2/geojson/' + geometry_name + '.geojson?v=2',
                     success: function(e) {
 
                         _maps_loaded++;
