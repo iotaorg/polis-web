@@ -162,36 +162,71 @@ jQuery(document).ready(function($) {
 
             if (graph_opt.type == 'line' || !graph_opt.type) {
                 _graph_lines($where, graph_opt);
-            }else{
+            } else {
                 _graph_yearly($where, graph_opt);
             }
         },
-        _graph_yearly = function($where, graph_opt){
+        _graph_yearly = function($where, graph_opt) {
 
             id_seq++;
             var $opts_container = $where.append('<div style="float:right; font-size: 0.8em" class="a col-xs-12 col-sm-1 form-group"></div>').find('.a'),
-            data = graph_opt.data;
+                graph = graph_opt.data;
 
-            $.each(data.lines, function(key, val) {
+            $.each(graph.lines, function(key, val) {
                 $opts_container.append("<div class='radio'><label><input type='radio' name='rd" + id_seq + "' value='" + val.k +
                     "' checked='checked'></input>" + val.v + "</label></div>");
             });
 
             var $graph_div = $opts_container.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-11"></div>').find('.b');
 
-            $opts_container.find('input').on('change', function(){
+            var prepend_to_result = graph.indicator.prepend_on_result,
+                append_to_result = graph.indicator.append_on_result;
+
+            $opts_container.find('input').on('change', function() {
                 if (!this.checked) return false;
 
-                var dataset = data.data[this.value];
+                var current_year = graph.data[this.value],
+                    headers_array = [];
 
-                console.log(dataset);
+
+                var datasets = [];
+
+                $.each(graph.headers, function(i, region) {
+                    headers_array.push([i, region.v]);
+
+
+                    datasets.push({
+                        data: [ [i, current_year[region.k] * 1] ],
+                        color: i
+                    });
+
+                });
+
+
+                var plot = $.plot($graph_div, datasets, {
+                    series: {
+                        bars: {
+                            show: true,
+                            barWidth: 0.2,
+                            align: "center",
+                            lineWidth: 2,
+                            fill: .75
+                        },
+                    },
+                    xaxis: {
+                        ticks: [ headers_array ]
+                    }
+
+                });
 
 
             });
 
             // inverte a ordem das divs de uma maneira que deve ser muito eficiente! # SQN
-            $opts_container.children().each(function(i,li){$opts_container.prepend(li)})
-            // clica no selecionado para disparar o draw do grafico
+            $opts_container.children().each(function(i, li) {
+                    $opts_container.prepend(li)
+                })
+                // clica no selecionado para disparar o draw do grafico
             $opts_container.find('input:checked').change();
 
         },
