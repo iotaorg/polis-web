@@ -196,7 +196,9 @@ jQuery(document).ready(function($) {
 
 
                     datasets.push({
-                        data: [ [i, current_year[region.k] * 1] ],
+                        data: [
+                            [i, current_year[region.k] * 1]
+                        ],
                         color: i
                     });
 
@@ -204,6 +206,17 @@ jQuery(document).ready(function($) {
 
 
                 var plot = $.plot($graph_div, datasets, {
+                    yaxis: {
+                        autoscaleMargin: 0.5,
+                        tickFormatter: function(v) {
+                            return (prepend_to_result ? '<sub>' + prepend_to_result + '</sub> ' : '') +
+                                (v.toLocaleString ? v.toLocaleString() : v) +
+                                (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
+                        },
+                    },
+                    grid: {
+                        hoverable: true
+                    },
                     series: {
                         bars: {
                             show: true,
@@ -214,10 +227,32 @@ jQuery(document).ready(function($) {
                         },
                     },
                     xaxis: {
-                        ticks: [ headers_array ]
+                        ticks: headers_array
+                    }
+                });
+
+
+                $graph_div.attr('id', 'id_' + id_seq++);
+                $('#' + $graph_div.attr('id')).bind("plothover", function(event, pos, item) {
+
+                    if (item) {
+
+                        var y = (prepend_to_result ? prepend_to_result + ' ' : '') +
+                            (item.datapoint[1].toLocaleString ? item.datapoint[1].toLocaleString() : item.datapoint[1]) +
+                            (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
+
+                        $("#tooltip").html(graph.headers[item.seriesIndex].v + " = " + y)
+                            .css({
+                                top: item.pageY - 28,
+                                left: item.pageX + 5
+                            })
+                            .fadeIn(200);
+                    } else {
+                        $("#tooltip").hide();
                     }
 
                 });
+
 
 
             });
