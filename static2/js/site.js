@@ -91,7 +91,7 @@ jQuery(document).ready(function($) {
     /* filtro pelo eixo */
     var $eixo_wrap = $('.eixo-wrap'),
         eixo_num = getUrlParameter('eixo'),
-        _click_to_filter = function() {
+        _click_to_filter = function(event) {
             var $me = $(this);
             $search.val('eixo ' + $me.attr('data-eixo')).trigger('keyup');
             var target = $('.filtros-eixos-wrap');
@@ -126,7 +126,8 @@ jQuery(document).ready(function($) {
             var $self = $(e),
                 id = $self.attr('data-id'),
                 vt = $self.attr('data-variable-type'),
-                tp = $self.attr('data-template');
+                tp = $self.attr('data-template'),
+                gt = $self.attr('data-graph-type');
 
             $.ajax({
                 url: '/ajax/indicador_tabela_rot_regiao',
@@ -141,7 +142,14 @@ jQuery(document).ready(function($) {
                 $self.find('.table').html(e);
 
                 if (!(vt === 'str')) {
-                    _carrega_flot_graph($self, $.parseJSON($self.find('div[data-json]').attr('data-json')))
+
+                    var elm = $self.find('div[data-json]');
+
+                    _carrega_flot_graph($self, {
+                        type: gt,
+                        data: $.parseJSON(elm.attr('data-json'))
+                    });
+
                 }
             }).error(function() {
                 $self.find('.table').html('Ocorreu um erro ao carregar os dados...');
@@ -149,10 +157,49 @@ jQuery(document).ready(function($) {
 
         },
 
-        _carrega_flot_graph = function($where, graph) {
+        _carrega_flot_graph = function($where, graph_opt) {
             $where = $where.find('.graph').html('');
 
-            var datasets = {};
+            if (graph_opt.type == 'line' || !graph_opt.type) {
+                _graph_lines($where, graph_opt);
+            }else{
+                _graph_yearly($where, graph_opt);
+            }
+        },
+        _graph_yearly = function($where, graph_opt){
+
+            id_seq++;
+            var $opts_container = $where.append('<div style="float:right; font-size: 0.8em" class="a col-xs-12 col-sm-1 form-group"></div>').find('.a'),
+            data = graph_opt.data;
+
+            $.each(data.lines, function(key, val) {
+                $opts_container.append("<div class='radio'><label><input type='radio' name='rd" + id_seq + "' value='" + val.k +
+                    "' checked='checked'></input>" + val.v + "</label></div>");
+            });
+
+            var $graph_div = $opts_container.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-11"></div>').find('.b');
+
+            $opts_container.find('input').on('change', function(){
+                if (!this.checked) return false;
+
+                var dataset = data.data[this.value];
+
+                console.log(dataset);
+
+
+            });
+
+            // inverte a ordem das divs de uma maneira que deve ser muito eficiente! # SQN
+            $opts_container.children().each(function(i,li){$opts_container.prepend(li)})
+            // clica no selecionado para disparar o draw do grafico
+            $opts_container.find('input:checked').change();
+
+        },
+        _graph_lines = function($where, graph_opt) {
+
+
+            var datasets = {},
+                graph = graph_opt.data;
 
             $.each(graph.headers, function(i, region) {
 
@@ -173,15 +220,15 @@ jQuery(document).ready(function($) {
             });
 
             // insert checkboxes
-            var choiceContainer = $where.append('<div style="float:right; font-size: 0.8em" class="a  col-xs-12 col-sm-2 form-group"></div>').find('.a');
+            var $opts_container = $where.append('<div style="float:right; font-size: 0.8em" class="a  col-xs-12 col-sm-2 form-group"></div>').find('.a');
 
             $.each(datasets, function(key, val) {
-                choiceContainer.append("<div class='checkbox'><label><input type='checkbox' name='" + key +
+                $opts_container.append("<div class='checkbox'><label><input type='checkbox' name='" + key +
                     "' checked='checked'></input>" + val.label + "</label></div>");
             });
 
-            var $graph_div = choiceContainer.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-10"></div>').find('.b');
-            choiceContainer.find("input").click(plotAccordingToChoices);
+            var $graph_div = $opts_container.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-10"></div>').find('.b');
+            $opts_container.find("input").click(plotAccordingToChoices);
 
             $("<div id='tooltip'></div>").css({
                 position: "absolute",
@@ -193,7 +240,6 @@ jQuery(document).ready(function($) {
                 "background-color": "#6fa7e0"
             }).appendTo("body");
 
-
             var prepend_to_result = graph.indicator.prepend_on_result,
                 append_to_result = graph.indicator.append_on_result;
 
@@ -201,7 +247,7 @@ jQuery(document).ready(function($) {
 
                 var data = [];
 
-                choiceContainer.find("input:checked").each(function() {
+                $opts_container.find("input:checked").each(function() {
                     var key = $(this).attr("name");
                     if (key && datasets[key]) {
                         data.push(datasets[key]);
@@ -216,8 +262,8 @@ jQuery(document).ready(function($) {
                             autoscaleMargin: 0.5,
                             tickFormatter: function(v) {
                                 return (prepend_to_result ? '<sub>' + prepend_to_result + '</sub> ' : '') +
-                                       (v.toLocaleString ? v.toLocaleString() : v) +
-                                       (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
+                                    (v.toLocaleString ? v.toLocaleString() : v) +
+                                    (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
                             },
                         },
                         series: {
@@ -243,9 +289,9 @@ jQuery(document).ready(function($) {
 
                         if (item) {
                             var x = item.datapoint[0],
-                                y = (prepend_to_result ?  prepend_to_result + ' ' : '') +
-                                       (item.datapoint[1].toLocaleString ? item.datapoint[1].toLocaleString() : item.datapoint[1]) +
-                                       (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
+                                y = (prepend_to_result ? prepend_to_result + ' ' : '') +
+                                (item.datapoint[1].toLocaleString ? item.datapoint[1].toLocaleString() : item.datapoint[1]) +
+                                (append_to_result ? ' ' + '<sup>' + append_to_result + '</sup>' : '');
 
                             $("#tooltip").html(item.series.label + " = " + y)
                                 .css({
@@ -269,7 +315,7 @@ jQuery(document).ready(function($) {
                 plotAccordingToChoices();
             }, 100))
 
-            //$search.on('keyup', debounce(_ajax_acoes, 150));
+
 
         };
 
