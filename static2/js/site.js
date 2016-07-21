@@ -166,6 +166,9 @@ jQuery(document).ready(function($) {
                 _graph_yearly($where, graph_opt);
             }
         },
+        labelFormatter = function (label, series) {
+            return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+        },
         _graph_yearly = function($where, graph_opt) {
 
             id_seq++;
@@ -199,11 +202,36 @@ jQuery(document).ready(function($) {
                         data: [
                             [i, current_year[region.k] * 1]
                         ],
+                        label: region.v,
                         color: i
                     });
 
                 });
 
+                var conf = {
+                    pie: {
+                        show: true,
+                        radius: 1,
+                        label: {
+                            show: true,
+                            radius: 3/4,
+                            threshold: 0.02,
+                            formatter: labelFormatter,
+                            background: {
+                                opacity: 0.5
+                            }
+                        }
+                    },
+                    bars: {
+                        show: true,
+                        barWidth: 0.2,
+                        align: "center",
+                        lineWidth: 2,
+                        fill: .75
+                    }
+                }, conf_name = (graph_opt.type == 'pie' ? 'pie' : 'bars'),
+                final_conf = {};
+                final_conf[conf_name] = conf[conf_name];
 
                 var plot = $.plot($graph_div, datasets, {
                     yaxis: {
@@ -217,18 +245,12 @@ jQuery(document).ready(function($) {
                     grid: {
                         hoverable: true
                     },
-                    series: {
-                        bars: {
-                            show: true,
-                            barWidth: 0.2,
-                            align: "center",
-                            lineWidth: 2,
-                            fill: .75
-                        },
-                    },
+                    series: final_conf,
+                    tooltip: true,
                     xaxis: {
                         ticks: headers_array
-                    }
+                    },
+                    legend: { show: false}
                 });
 
 
@@ -236,6 +258,9 @@ jQuery(document).ready(function($) {
                 $('#' + $graph_div.attr('id')).bind("plothover", function(event, pos, item) {
 
                     if (item) {
+                        if (typeof item.datapoint[1] == 'object'){
+                            item.datapoint[1] = item.datapoint[1][0][1];
+                        }
 
                         var y = (prepend_to_result ? prepend_to_result + ' ' : '') +
                             (item.datapoint[1].toLocaleString ? item.datapoint[1].toLocaleString() : item.datapoint[1]) +
@@ -243,10 +268,11 @@ jQuery(document).ready(function($) {
 
                         $("#tooltip").html(graph.headers[item.seriesIndex].v + " = " + y)
                             .css({
-                                top: item.pageY - 28,
-                                left: item.pageX + 5
+                                top: pos.pageY - 28,
+                                left: pos.pageX + 5
                             })
                             .fadeIn(200);
+
                     } else {
                         $("#tooltip").hide();
                     }

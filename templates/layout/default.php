@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><?$version='123'?>
+<head><?$version='125'?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -191,6 +191,7 @@
     <?endif?>
     <script async src="/static2/js/site.js?v=<?=$version?>"></script>
     <script src="/static2/js/jquery.flot.min.js"></script>
+    <script src="/static2/js/jquery.flot.pie.min.js"></script>
 
     <!-- javascript -->
     <?php $this->block('scripts');?>
