@@ -842,3 +842,12 @@ a.linkacao:hover .acao-txt-wrap {
    overflow:auto;
 
 }
+
+.pane-opendata a,.pane-opendata a:hover,.pane-opendata a:visited {
+    color: #6fa7e0;
+    padding-top: 2px;
+    font-weight: 700;
+    padding-bottom: 2px;
+}
+.pane-opendata dd {margin-bottom: 15px;  }
+.pane-opendata dt {padding-top: 3px;  }

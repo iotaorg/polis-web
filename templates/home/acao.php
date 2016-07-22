@@ -82,6 +82,7 @@
                 <li role="presentation" class="<?if ((@$i->variable_type == 'str')): ?>active<?endif?>" ><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
                 <li role="presentation"><a href="#formula<?=$i->id?>" aria-controls="formula<?=$i->id?>" role="tab" data-toggle="tab">Fórmula</a></li>
                 <?if ($i->nossa_leitura):?><li role="presentation"><a href="#leitura<?=$i->id?>" aria-controls="leitura<?=$i->id?>" role="tab" data-toggle="tab">Nossa leitura</a></li><?endif?>
+                <li role="presentation"><a href="#dados<?=$i->id?>" aria-controls="dados<?=$i->id?>" role="tab" data-toggle="tab">Dados abertos</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -99,8 +100,18 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="formula<?=$i->id?>"> <?=$i->descricao_formula?></div>
                 <?if ($i->nossa_leitura):?><div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div><?endif?>
+
+                <div role="tabpanel" class="tab-pane pane-opendata" id="dados<?=$i->id?>">
+                    <h4>Você pode consumir este indicador nos seguintes formatos:</h4>
+
+                    <dl class="dl-horizontal">
+                        <dt>Dados tabulados:</dt><dd> <a class="btn btn-default" target="_new" href="/polis/<?= $i->variable_type =='str' ? 'indicador_tabela_rot_txt' :'indicador_tabela_rot_regiao'   ?>/<?=$i->id?>">API JSON</a> <a class="btn btn-default" href="#">CSV</a> <a class="btn btn-default" href="#">XLS</a> </dd>
+                        <dt>Resultados por região:</dt><dd> <a class="btn btn-default" target="_new" href="/api/download-indicators?indicator_id=<?=$i->id?>">JSON</a></dd>
+                        <dt>Linhas das variáveis:</dt><dd> <a class="btn btn-default" target="_new" href="/api/download-variables?indicator_id=<?=$i->id?>">JSON</a></dd>
+                    </dl>
                 </div>
 
+                </div>
             </div>
 
         <?php endforeach ?>
