@@ -418,7 +418,7 @@ jQuery(document).ready(function($) {
                         });
 
                         if (_maps_loaded == _maps_total) {
-                            L.control.layers(_fixed_layer, _control_layer).addTo(map);
+                            L.control.layers(_fixed_layer, _control_layer, {collapsed:0}).addTo(map);
 
                             bestFitZoom();
                         }
