@@ -38,7 +38,7 @@
             <div aria-multiselectable="true" class="panel-group" id="accordion-acao" role="tablist">
                 <?php $cont=0; foreach ( array (
                     "txt_info_qualitativas" => 'Informações Qualitativas',
-                    "txt_condicionantes"    => 'Condicionantes ambientais',
+                    "txt_condicionantes"    => 'Condicionantes Ambientais e Projetos Relevantes',
                     "txt_focos"             => "Focos e Perguntas Orientadoras",
                 ) as $key => $value ): $cont++; if ( @$acao->text_content->$key == '' ) continue ?>
                     <div class="panel panel-default collapse-acao-cont">
@@ -105,7 +105,7 @@
                     <h4>Você pode consumir este indicador nos seguintes formatos:</h4>
 
                     <dl class="dl-horizontal">
-                        <dt>Dados tabulados:</dt><dd> <a class="btn btn-default" target="_new" href="/polis/<?= $i->variable_type =='str' ? 'indicador_tabela_rot_txt' :'indicador_tabela_rot_regiao'   ?>/<?=$i->id?>">API JSON</a> <a class="btn btn-default" href="#">CSV</a> <a class="btn btn-default" href="#">XLS</a> </dd>
+                        <dt>Dados tabulados:</dt><dd> <a class="btn btn-default" href="#">CSV</a> <a class="btn btn-default" href="#">XLS</a> <a class="btn btn-default" target="_new" href="/polis/<?= $i->variable_type =='str' ? 'indicador_tabela_rot_txt' :'indicador_tabela_rot_regiao'   ?>/<?=$i->id?>">API JSON</a> </dd>
                         <dt>Resultados por região:</dt><dd> <a class="btn btn-default" target="_new" href="/api/download-indicators?indicator_id=<?=$i->id?>">JSON</a></dd>
                         <dt>Linhas das variáveis:</dt><dd> <a class="btn btn-default" target="_new" href="/api/download-variables?indicator_id=<?=$i->id?>">JSON</a></dd>
                     </dl>
