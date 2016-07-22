@@ -307,14 +307,31 @@ jQuery(document).ready(function($) {
                     feature.properties.opacity = feature.properties.OPACITY;
                     delete feature.properties.OPACITY;
                 }
+                if (feature.properties.Opacity) {
+                    feature.properties.opacity = feature.properties.Opacity;
+                    delete feature.properties.Opacity;
+                }
+
+
+
                 if (feature.properties.OPACIDADE) {
                     feature.properties.fillOpacity = feature.properties.OPACIDADE;
                     delete feature.properties.OPACIDADE;
                 }
+                if (feature.properties.Opacidade) {
+                    feature.properties.fillOpacity = feature.properties.Opacidade;
+                    delete feature.properties.Opacidade;
+                }
+
 
                 if (feature.properties.COLOR) {
                     feature.properties.color = feature.properties.COLOR;
                     delete feature.properties.COLOR;
+                }
+
+                if (feature.properties.Color) {
+                    feature.properties.color = feature.properties.Color;
+                    delete feature.properties.Color;
                 }
 
                 if (feature.properties.CORES) {
@@ -325,6 +342,10 @@ jQuery(document).ready(function($) {
                 if (feature.properties.STROKE) {
                     feature.properties.stroke = feature.properties.STROKE ? true : false;
                     delete feature.properties.STROKE;
+                }
+                if (feature.properties.Stroke) {
+                    feature.properties.stroke = feature.properties.Stroke ? true : false;
+                    delete feature.properties.Stroke;
                 }
 
                 if (feature.properties.WEIGHT) {
@@ -356,10 +377,6 @@ jQuery(document).ready(function($) {
             delete feature.properties.opacity;
             delete feature.properties.weight;
             delete feature.properties.cores;
-            delete feature.properties.Color;
-            delete feature.properties.Opacity;
-            delete feature.properties.Opacidade;
-            delete feature.properties.Stroke;
 
             $.each(feature.properties, function(i, e) {
                 popupContent += "<strong>" + i + "</strong>: <span>" + e + "</span><br/>";
