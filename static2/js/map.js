@@ -276,6 +276,8 @@ jQuery(document).ready(function($) {
 
                 if (feature.properties.OPACITY)
                     feature.properties.OPACITY = feature.properties.OPACITY.replace(',', '.') * 1
+                if (feature.properties.Opacity)
+                    feature.properties.Opacity = feature.properties.Opacity.replace(',', '.') * 1
 
                 if (feature.properties.Cores) {
                     feature.properties.cores = feature.properties.Cores;
@@ -303,49 +305,49 @@ jQuery(document).ready(function($) {
                     delete feature.properties.opacidade;
                 }
 
-                if (feature.properties.OPACITY) {
-                    feature.properties.opacity = feature.properties.OPACITY;
-                    delete feature.properties.OPACITY;
-                }
                 if (feature.properties.Opacity) {
                     feature.properties.opacity = feature.properties.Opacity;
                     delete feature.properties.Opacity;
                 }
-
-
-
-                if (feature.properties.OPACIDADE) {
-                    feature.properties.fillOpacity = feature.properties.OPACIDADE;
-                    delete feature.properties.OPACIDADE;
+                if (feature.properties.OPACITY) {
+                    feature.properties.opacity = feature.properties.OPACITY;
+                    delete feature.properties.OPACITY;
                 }
+
+
+
                 if (feature.properties.Opacidade) {
                     feature.properties.fillOpacity = feature.properties.Opacidade;
                     delete feature.properties.Opacidade;
                 }
-
-
-                if (feature.properties.COLOR) {
-                    feature.properties.color = feature.properties.COLOR;
-                    delete feature.properties.COLOR;
+                if (feature.properties.OPACIDADE) {
+                    feature.properties.fillOpacity = feature.properties.OPACIDADE;
+                    delete feature.properties.OPACIDADE;
                 }
+
 
                 if (feature.properties.Color) {
                     feature.properties.color = feature.properties.Color;
                     delete feature.properties.Color;
                 }
+                if (feature.properties.COLOR) {
+                    feature.properties.color = feature.properties.COLOR;
+                    delete feature.properties.COLOR;
+                }
+
 
                 if (feature.properties.CORES) {
                     feature.properties.fillColor = feature.properties.CORES;
                     delete feature.properties.CORES;
                 }
 
-                if (feature.properties.STROKE) {
-                    feature.properties.stroke = feature.properties.STROKE ? true : false;
-                    delete feature.properties.STROKE;
-                }
                 if (feature.properties.Stroke) {
                     feature.properties.stroke = feature.properties.Stroke ? true : false;
                     delete feature.properties.Stroke;
+                }
+                if (feature.properties.STROKE) {
+                    feature.properties.stroke = feature.properties.STROKE ? true : false;
+                    delete feature.properties.STROKE;
                 }
 
                 if (feature.properties.WEIGHT) {
