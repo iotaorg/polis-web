@@ -413,7 +413,7 @@ jQuery(document).ready(function($) {
 
             $.each(current_geometries, function(current_level, geometry_name) {
                 $.ajax({
-                    url: '/static2/geojson/' + geometry_name + '.geojson?v=2',
+                    url: '/static2/geojson/' + geometry_name + '.geojson?v=3',
                     success: function(e) {
 
                         _maps_loaded++;
