@@ -334,15 +334,7 @@ jQuery(document).ready(function($) {
             var $graph_div = $opts_container.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-10"></div>').find('.b');
             $opts_container.find("input").click(plotAccordingToChoices);
 
-            $("<div id='tooltip'></div>").css({
-                position: "absolute",
-                display: "none",
-                border: "1px solid #1c72ca",
-                "font-weight": "700",
-                padding: "3px",
-                color: "white",
-                "background-color": "#6fa7e0"
-            }).appendTo("body");
+
 
             var prepend_to_result = graph.indicator.prepend_on_result,
                 append_to_result = graph.indicator.append_on_result;
@@ -424,7 +416,17 @@ jQuery(document).ready(function($) {
         };
 
     $indicadores.each(function(i, e) {
-        _carrega_tabela_indicador(e)
+        $("<div id='tooltip'></div>").css({
+            position: "absolute",
+            display: "none",
+            border: "1px solid #1c72ca",
+            "font-weight": "700",
+            padding: "3px",
+            color: "white",
+            "background-color": "#6fa7e0"
+        }).appendTo("body");
+
+        _carrega_tabela_indicador(e);
     })
 
     /* fim indicadores */
