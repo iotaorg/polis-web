@@ -281,8 +281,11 @@ jQuery(document).ready(function($) {
 
                 if (graph_opt.type == 'bar'){
 
-                    $graph_div.parents('.tab-content:first').addClass('tab-content-bar');
-                    $graph_div.parents('.tab-content:first').height( ($graph_div.parents('.tab-content:first').height() + 90) + 'px' )
+
+                    if (!$graph_div.parents('.tab-content:first').hasClass('tab-content-bar')){
+                        $graph_div.parents('.tab-content:first').addClass('tab-content-bar');
+                        $graph_div.parents('.tab-content:first').height( ($graph_div.parents('.tab-content:first').height() + 90) + 'px' )
+                    }
                 }
 
             });

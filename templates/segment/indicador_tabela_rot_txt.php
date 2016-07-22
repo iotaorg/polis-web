@@ -1,9 +1,9 @@
 <div class="table-responsive">
 <table class="table table-bordered table-condensed table-striped table-hover">
 <colgroup>
-<col/>
+<col style="width: 10%"/>
     <? foreach ( $dados->headers as $h ): ?>
-        <col style="width: 80px"/>
+        <col style="width: <?=90/sizeof($dados->headers)?>%"/>
     <?endforeach?>
 </colgroup>
 <thead>
