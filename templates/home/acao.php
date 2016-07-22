@@ -80,7 +80,7 @@
                 <li role="presentation" class="active"><a href="#visualizacao<?=$i->id?>" aria-controls="visualizacao<?=$i->id?>" role="tab" data-toggle="tab">Visualização</a></li>
                 <?endif?>
                 <li role="presentation" class="<?if ((@$i->variable_type == 'str')): ?>active<?endif?>" ><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
-                <li role="presentation"><a href="#formula<?=$i->id?>" aria-controls="formula<?=$i->id?>" role="tab" data-toggle="tab">Fórmula</a></li>
+                <?if ($i->descricao_formula ):?><li role="presentation"><a href="#formula<?=$i->id?>" aria-controls="formula<?=$i->id?>" role="tab" data-toggle="tab">Fórmula</a></li><?endif?>
                 <?if ($i->nossa_leitura):?><li role="presentation"><a href="#leitura<?=$i->id?>" aria-controls="leitura<?=$i->id?>" role="tab" data-toggle="tab">Nossa leitura</a></li><?endif?>
                 <li role="presentation"><a href="#dados<?=$i->id?>" aria-controls="dados<?=$i->id?>" role="tab" data-toggle="tab">Dados abertos</a></li>
               </ul>
@@ -98,7 +98,7 @@
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="formula<?=$i->id?>"> <?=$i->descricao_formula?></div>
+                <?if ($i->descricao_formula ):?><div role="tabpanel" class="tab-pane" id="formula<?=$i->id?>"> <?=$i->descricao_formula?></div><?endif?>
                 <?if ($i->nossa_leitura):?><div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div><?endif?>
 
                 <div role="tabpanel" class="tab-pane pane-opendata" id="dados<?=$i->id?>">
