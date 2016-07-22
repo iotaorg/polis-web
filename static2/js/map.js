@@ -278,6 +278,9 @@ jQuery(document).ready(function($) {
                     feature.properties.OPACITY = feature.properties.OPACITY.replace(',', '.') * 1
                 if (feature.properties.Opacity)
                     feature.properties.Opacity = feature.properties.Opacity.replace(',', '.') * 1
+                if (feature.properties.Opacidade)
+                    feature.properties.Opacidade = feature.properties.Opacidade.replace(',', '.') * 1
+
 
                 if (feature.properties.Cores) {
                     feature.properties.cores = feature.properties.Cores;
