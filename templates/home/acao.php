@@ -105,7 +105,9 @@
                     <h4>Você pode consumir este indicador nos seguintes formatos:</h4>
 
                     <dl class="dl-horizontal">
-                        <dt>Dados tabulados:</dt><dd> <a class="btn btn-default" href="#">CSV</a> <a class="btn btn-default" href="#">XLS</a> <a class="btn btn-default" target="_new" href="/polis/<?= $i->variable_type =='str' ? 'indicador_tabela_rot_txt' :'indicador_tabela_rot_regiao'   ?>/<?=$i->id?>">API JSON</a> </dd>
+                        <? $download = '/polis/' . ($i->variable_type =='str' ? 'indicador_tabela_rot_txt' :'indicador_tabela_rot_regiao') . '/' .$i->id ?>
+
+                        <dt>Dados tabulados:</dt><dd> <a class="btn btn-default" href="<?=$download?>?download=csv">CSV</a> <a class="btn btn-default" href="<?=$download?>?download=xls">XLS</a> <a class="btn btn-default" target="_new" href="<?=$download?>">API JSON</a> </dd>
                         <dt>Resultados por região:</dt><dd> <a class="btn btn-default" target="_new" href="/api/download-indicators?indicator_id=<?=$i->id?>">JSON</a></dd>
                         <dt>Linhas das variáveis:</dt><dd> <a class="btn btn-default" target="_new" href="/api/download-variables?indicator_id=<?=$i->id?>">JSON</a></dd>
                     </dl>
