@@ -214,7 +214,7 @@ jQuery(document).ready(function($) {
             "1E": ["LIMITES_MUNICIPAIS", "DELEGACIAS_ESPECIALIZADAS"],
             "1F": ["LIMITES_MUNICIPAIS", "ENSINO_SUPERIOR_PUBLICO"],
             "1G": ["LIMITES_MUNICIPAIS"],
-            "1H": ["LIMITES_MUNICIPAIS"],
+            "1H": ["LIMITES_MUNICIPAIS", "AGRICULTURA_FAMILIAR", "PCT_Pesca"],
             "1I": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "TURISMO_BASE_COMUNITARIA"],
             "2A": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO_CLASSE", "PERIMETROS_MARCEL"],
             "2B": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO_CLASSE"],
@@ -224,12 +224,12 @@ jQuery(document).ready(function($) {
             "2F": ["LIMITES_MUNICIPAIS", "ZEIS_UC"],
             "2G": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "CONFLITOS"],
             "3A": ["LIMITES_MUNICIPAIS", "LINHAS_EMTU", "CICLOVIAS"],
-            "3B": ["LIMITES_MUNICIPAIS"],
+            "3B": ["SAN_MUNICIPIOS", "AGRICULTURA_FAMILIAR", "FEIRAS", "EQUIPAMENTOS_SAN"],
             "3C": ["LIMITES_MUNICIPAIS", "ETES"],
             "3D": ["LIMITES_MUNICIPAIS", "SOLUCOES_ALTERNATIVAS"],
             "3E": ["LIMITES_MUNICIPAIS", "RISCO_ESCORREGAMENTO", "RISCO_INUNDACAO"],
             "3F": ["LIMITES_MUNICIPAIS"],
-            "3G": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "PRAIAS_MONITORADAS"],
+            "3G": ["LIMITES_MUNICIPAIS", "UNIDADE_CONSERVACAO", "PRAIAS_MONITORADAS", "PORTOS"],
             "3H": ["LIMITES_MUNICIPAIS", "ZEIS_VAZIAS"],
             "3I": ["LIMITES_MUNICIPAIS", "ZEIS"],
             "3J": ["LIMITES_MUNICIPAIS", "ZEIS_OCUPADAS", "ASSENTAMENTOS_PRECARIOS"],
@@ -365,6 +365,27 @@ jQuery(document).ready(function($) {
             return feature.properties && feature.properties;
         },
 
+        de_para = {
+            'ID_': 'ID',
+            'MUNICÍPIO': 'MUNICÍPIO',
+            'MUNICIPIO': 'MUNICÍPIO',
+            'ÓRGÃO_RESP': 'ÓRGÃO RESPONSÁVEL PELAS AÇÕES DE SAN',
+            'CONSELHO_E': 'CONSELHO E COMPOSIÇÃO',
+            'CAISAN_E_Ó': 'CAISAN E ÓRGÃOS REPRESENTADOS',
+            'PLANO_DE_S': 'PLANO DE SAN',
+            'CONFERÊNCI': 'CONFERÊNCIA MUNICIPAL E REGIONAL 2015',
+            'SISTEMA_DE': 'SISTEMA DE INSPEÇÃO MUNICIPAL',
+            'EQUIPE_DE': 'EQUIPE DE ASSISTÊNCIA TÉCNICA E EXTENSÃO RURAL (ATER)',
+            'PAA': 'PAA',
+            'COMPRAS_DA': 'COMPRAS DA AGRICULTURA FAMILIAR (PNAE 2015)',
+            'PROGRAMAS': 'PROGRAMAS DE EDUCAÇÃO ALIMENTAR E NUTRICIONAL?',
+            'PESCADORES': 'PESCADORES ARTESANAIS NO MUNICÍPIO (MPA 2015)',
+            'AGRICULTOR': 'AGRICULTORES FORNECEDORES DO PAA (MDA 2014)',
+            'CONTRATOS': 'CONTRATOS DE CRÉDITO DO PRONAF (2014)',
+            'FAMÍLIAS_B': 'FAMÍLIAS BENEFICIADOS PELO PBF/CRITÉRIOS DO CADÚNICO (MDS 2014)',
+            'ÚLTIMA_ATU': 'ÚLTIMA ATUALIZAÇÃO'
+        },
+
         onEachFeature = function(feature, layer) {
             var popupContent = "";
             var oxe = JSON.stringify(feature);
@@ -382,9 +403,30 @@ jQuery(document).ready(function($) {
             delete feature.properties.opacity;
             delete feature.properties.weight;
             delete feature.properties.cores;
+            delete feature.properties.Municipio_;
+
+
+            if (feature.properties.Name){
+                popupContent += "<h4>" + feature.properties.Name + "</h4>";
+                delete feature.properties.Name;
+            }
+            if (feature.properties.Description){
+                popupContent +=  feature.properties.Description + "<br/>";
+                delete feature.properties.Description;
+            }
+
+            $.each(de_para, function(i, e) {
+
+                if (feature.properties[i]) {
+
+                    popupContent += "<strong>" + e + "</strong>: <span>" + feature.properties[i] + "</span><br/>";
+                    delete feature.properties[i];
+                }
+            });
 
             $.each(feature.properties, function(i, e) {
-                popupContent += "<strong>" + i + "</strong>: <span>" + e + "</span><br/>";
+                var ki = de_para[i] ? de_para[i] : i;
+                popupContent += "<strong>" + ki + "</strong>: <span>" + e + "</span><br/>";
             });
 
             layer.bindPopup(popupContent);
@@ -418,7 +460,7 @@ jQuery(document).ready(function($) {
 
             $.each(current_geometries, function(current_level, geometry_name) {
                 $.ajax({
-                    url: '/static2/geojson/' + geometry_name + '.geojson?v=3',
+                    url: '/static2/geojson/' + geometry_name + '.geojson?v=4',
                     success: function(e) {
 
                         _maps_loaded++;
@@ -430,21 +472,30 @@ jQuery(document).ready(function($) {
                         });
                         something.setZIndex(current_level);
 
-                        _loaded_layers[current_level] = {name : geometry_name, group : something};
+                        _loaded_layers[current_level] = {
+                            name: geometry_name,
+                            group: something
+                        };
                         var _control_layer = {};
-                        $.each(_loaded_layers, function(i, e){
+                        $.each(current_geometries, function(i, loop_geometry_name) {
 
-                            if (e){
-                                if (!map.hasLayer(e.group)){
-                                    e.group.addTo(map);
-                                }
+                            if (_loaded_layers[i]) {
+                                map.removeLayer(_loaded_layers[i].group);
+                            }
+                        });
 
-                                _control_layer[e.name] = e.group;
+                        $.each(current_geometries, function(i, loop_geometry_name) {
+
+                            if (_loaded_layers[i]) {
+                                _loaded_layers[i].group.addTo(map);
+                                _control_layer[_loaded_layers[i].name] = _loaded_layers[i].group;
                             }
                         });
 
                         if (_maps_loaded == _maps_total) {
-                            L.control.layers(_fixed_layer, _control_layer, {collapsed:0}).addTo(map);
+                            L.control.layers(_fixed_layer, _control_layer, {
+                                collapsed: 0
+                            }).addTo(map);
 
                             bestFitZoom();
                         }

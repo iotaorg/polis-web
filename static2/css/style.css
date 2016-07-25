@@ -851,3 +851,6 @@ a.linkacao:hover .acao-txt-wrap {
 }
 .pane-opendata dd {margin-bottom: 15px;  }
 .pane-opendata dt {padding-top: 3px;  }
+
+.leaflet-popup-content-wrapper {max-height: 400px; padding-bottom: 20px}
+.leaflet-container a.leaflet-popup-close-button {right: 10px !important}
