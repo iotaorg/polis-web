@@ -166,7 +166,7 @@ jQuery(document).ready(function($) {
                 _graph_yearly($where, graph_opt);
             }
         },
-        labelFormatter = function (label, series) {
+        labelFormatter = function(label, series) {
             return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
         },
         _graph_yearly = function($where, graph_opt) {
@@ -209,28 +209,29 @@ jQuery(document).ready(function($) {
                 });
 
                 var conf = {
-                    pie: {
-                        show: true,
-                        radius: 1,
-                        label: {
+                        pie: {
                             show: true,
-                            radius: 3/4,
-                            threshold: 0.02,
-                            formatter: labelFormatter,
-                            background: {
-                                opacity: 0.5
+                            radius: 1,
+                            label: {
+                                show: true,
+                                radius: 3 / 4,
+                                threshold: 0.02,
+                                formatter: labelFormatter,
+                                background: {
+                                    opacity: 0.5
+                                }
                             }
+                        },
+                        bars: {
+                            show: true,
+                            barWidth: 0.2,
+                            align: "center",
+                            lineWidth: 2,
+                            fill: .75
                         }
                     },
-                    bars: {
-                        show: true,
-                        barWidth: 0.2,
-                        align: "center",
-                        lineWidth: 2,
-                        fill: .75
-                    }
-                }, conf_name = (graph_opt.type == 'pie' ? 'pie' : 'bars'),
-                final_conf = {};
+                    conf_name = (graph_opt.type == 'pie' ? 'pie' : 'bars'),
+                    final_conf = {};
                 final_conf[conf_name] = conf[conf_name];
 
                 var plot = $.plot($graph_div, datasets, {
@@ -250,7 +251,9 @@ jQuery(document).ready(function($) {
                     xaxis: {
                         ticks: headers_array
                     },
-                    legend: { show: false}
+                    legend: {
+                        show: false
+                    }
                 });
 
 
@@ -258,7 +261,7 @@ jQuery(document).ready(function($) {
                 $('#' + $graph_div.attr('id')).bind("plothover", function(event, pos, item) {
 
                     if (item) {
-                        if (typeof item.datapoint[1] == 'object'){
+                        if (typeof item.datapoint[1] == 'object') {
                             item.datapoint[1] = item.datapoint[1][0][1];
                         }
 
@@ -279,12 +282,12 @@ jQuery(document).ready(function($) {
 
                 });
 
-                if (graph_opt.type == 'bar'){
+                if (graph_opt.type == 'bar') {
 
 
-                    if (!$graph_div.parents('.tab-content:first').hasClass('tab-content-bar')){
+                    if (!$graph_div.parents('.tab-content:first').hasClass('tab-content-bar')) {
                         $graph_div.parents('.tab-content:first').addClass('tab-content-bar');
-                        $graph_div.parents('.tab-content:first').height( ($graph_div.parents('.tab-content:first').height() + 90) + 'px' )
+                        $graph_div.parents('.tab-content:first').height(($graph_div.parents('.tab-content:first').height() + 90) + 'px')
                     }
                 }
 
@@ -292,10 +295,13 @@ jQuery(document).ready(function($) {
 
             // inverte a ordem das divs de uma maneira que deve ser muito eficiente! # SQN
             $opts_container.children().each(function(i, li) {
-                    $opts_container.prepend(li)
-                })
-                // clica no selecionado para disparar o draw do grafico
+                $opts_container.prepend(li)
+            });
             $opts_container.find('input:checked').change();
+            setTimeout(function() {
+                // clica no selecionado para disparar o draw do grafico
+                $opts_container.find('input:checked').change();
+            }, 0);
 
             $(window).bind('resize', debounce(function() {
                 $opts_container.find('input:checked').change();
@@ -330,8 +336,9 @@ jQuery(document).ready(function($) {
             var $opts_container = $where.append('<div style="float:right; font-size: 0.8em" class="a  col-xs-12 col-sm-2 form-group"></div>').find('.a');
 
             $.each(datasets, function(key, val) {
+                var checked = /Litoral Sustentável|Baixada Santista|Litoral Norte/.test(val.label) ? '' : "checked='checked'";
                 $opts_container.append("<div class='checkbox'><label><input type='checkbox' name='" + key +
-                    "' checked='checked'></input>" + val.label + "</label></div>");
+                    "' " + checked + "></input>" + val.label + "</label></div>");
             });
 
             var $graph_div = $opts_container.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-10"></div>').find('.b');
