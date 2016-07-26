@@ -13,7 +13,6 @@
         <div class="container">
             <div class="col-sm-12">
                 <a href="/"><div class="home-logo-wraper hidden-xs"><img src="/static2/css/images/logo-monitoramento-branco.svg?v=1"></div></a>
-
             </div>
 
 

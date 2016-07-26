@@ -202,6 +202,16 @@ L.Google.asyncInitialize = function() {
     }
     L.Google.asyncWait = [];
 };
+$.fn.moveUp = function() {
+    $.each(this, function() {
+         $(this).after($(this).prev());
+    });
+};
+$.fn.moveDown = function() {
+    $.each(this, function() {
+         $(this).before($(this).next());
+    });
+};
 jQuery(document).ready(function($) {
     "use strict";
 
@@ -498,6 +508,11 @@ jQuery(document).ready(function($) {
                             }).addTo(map);
 
                             bestFitZoom();
+
+                            setTimeout(function(){
+                                $('.leaflet-control-layers-overlays ')
+
+                            }, 0);
                         }
                     },
                     error: function() {
