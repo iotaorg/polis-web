@@ -1,5 +1,5 @@
 <div class="table-responsive">
-<table class="table table-bordered table-condensed table-striped table-hover">
+<table class="table txthover table-bordered table-condensed table-striped table-hover">
 <colgroup>
 <col style="width: 10%"/>
     <? foreach ( $dados->headers as $h ): ?>

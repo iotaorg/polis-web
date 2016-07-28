@@ -854,3 +854,8 @@ a.linkacao:hover .acao-txt-wrap {
 
 .leaflet-popup-content-wrapper {max-height: 400px; padding-bottom: 20px}
 .leaflet-container a.leaflet-popup-close-button {right: 10px !important}
+
+.txthover>tbody>tr:hover>td, .txthover>tbody>tr:hover>th {
+    background-color: #000000;
+    color: white;
+}

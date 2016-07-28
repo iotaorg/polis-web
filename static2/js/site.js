@@ -156,7 +156,13 @@ jQuery(document).ready(function($) {
             });
 
         },
-
+        __colors = [
+            "#edc240","#afd8f8","#cb4b4b","#4da74d","#af70f1","#cdb466","#a9c1d4","#a23c3c","#6da36d",
+            "#7633bd","#ffe84c","#A9A9A9","#f35a5a","#5cc85c","#b14cff","#aa965b"
+        ],
+        get_color_for = function(i){
+            return __colors[i] || i;
+        },
         _carrega_flot_graph = function($where, graph_opt) {
             $where = $where.find('.graph').html('');
 
@@ -203,7 +209,7 @@ jQuery(document).ready(function($) {
                             [i, current_year[region.k] * 1]
                         ],
                         label: region.v,
-                        color: i
+                        color: get_color_for(i)
                     });
 
                 });
@@ -328,7 +334,7 @@ jQuery(document).ready(function($) {
             });
             var i = 0;
             $.each(datasets, function(key, val) {
-                val.color = i;
+                val.color = get_color_for(i);
                 ++i;
             });
 
