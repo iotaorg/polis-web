@@ -92,7 +92,7 @@
                 </div>
                 <?endif?>
                 <?if ((@$i->variable_type == 'str') && ($i->graph_type == 'pie') ): $any_active++?>
-                <div role="tabpanel" class="tab-pane graph-pie active " id="visualizacao<?=$i->id?>">
+                <div role="tabpanel" class="tab-pane graph active " id="visualizacao<?=$i->id?>">
                     <h4 class="text-center">Carregando gráficos...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
                 </div>

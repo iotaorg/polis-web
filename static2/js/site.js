@@ -151,6 +151,56 @@ jQuery(document).ready(function($) {
                     });
 
                 }
+                if ((vt === 'str' && gt == 'pie')) {
+
+                    var elm = $self.find('div[data-json]'),
+                    mod_data = $.parseJSON(elm.attr('data-json'));
+
+                    /* lines serao as variaveis, e os headers os dados para a pizza */
+                    var new_lines = mod_data.headers, new_headers = [], variable_ref = {}, variable_dist={};
+                    // corre cada variaval, para criar uma lista com cada valor encontrado em cada cidade
+                    $.each(mod_data.headers, function(i,header){
+
+                        variable_dist[header.k] = {};
+                        variable_ref[header.k] = header.name;
+
+                        // procura por cada cidade existente
+                        $.each(mod_data.lines, function(i,row){
+
+                            var val = typeof mod_data.data[row.k] == 'undefined' ?  '(em branco)' : mod_data.data[row.k][header.k];
+
+                            if (typeof variable_dist[header.k][val] == 'number'){
+                                variable_dist[header.k][val]++;
+                            }else{
+                                variable_dist[header.k][val] = 1;
+                            }
+                        })
+                    });
+
+                    var used={};
+                    $.each(variable_dist, function(i,vt){
+                        $.each(vt, function(i,fn){
+                            if(!used[i]){
+                                new_headers.push({ k: i, v: i, title: variable_ref[i] });
+                                 used[i]=1;
+                            }
+                        });
+                    });
+
+                    _carrega_flot_graph($self, {
+                        type: gt,
+                        data: {
+                            lines: new_lines,
+                            headers: new_headers,
+                            data: variable_dist,
+                            indicator: mod_data.indicator
+                        },
+                        no_reverse: 1,
+                        use_title: 1
+                    });
+
+                }
+
             }).error(function() {
                 $self.find('.table').html('Ocorreu um erro ao carregar os dados...');
             });
@@ -158,7 +208,8 @@ jQuery(document).ready(function($) {
         },
         __colors = [
             "#edc240", "#afd8f8", "#cb4b4b", "#4da74d", "#af70f1", "#cdb466", "#a9c1d4", "#a23c3c", "#6da36d",
-            "#7633bd", "#ffe84c", "#A9A9A9", "#f35a5a", "#5cc85c", "#b14cff", "#aa965b"
+            "#7633bd", "#ffe84c", "#A9A9A9", "#f35a5a", "#5cc85c", "#b14cff", "#aa965b", "#ef58a2", "#6691b8",
+            "#d1370d","#455d2c","#a30540","#53776e"
         ],
         get_color_for = function(i) {
             return __colors[i] || i;
@@ -182,9 +233,13 @@ jQuery(document).ready(function($) {
                 graph = graph_opt.data;
 
             $.each(graph.lines, function(key, val) {
-                $opts_container.append("<div class='radio'><label><input type='radio' name='rd" + id_seq + "' value='" + val.k +
-                    "' checked='checked'></input>" + val.v + "</label></div>");
+                $opts_container.append("<div class='radio' "+(val.name? ('title="' + val.name + '"') :'')+"><label><input type='radio' name='rd" + id_seq + "' value='" + val.k +
+                    "'></input>" + val.v + "</label></div>");
             });
+
+            if (graph_opt.use_title){
+                $opts_container.parent().append('<div class="graph-title"></div>');
+            }
 
             var $graph_div = $opts_container.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-11"></div>').find('.b');
 
@@ -197,6 +252,9 @@ jQuery(document).ready(function($) {
                 var current_year = graph.data[this.value],
                     headers_array = [];
 
+                if (graph_opt.use_title){
+                    $opts_container.parent().find('.graph-title').text($(this).parents('div.radio:first').attr('title'));
+                }
 
                 var datasets = [];
 
@@ -299,10 +357,14 @@ jQuery(document).ready(function($) {
 
             });
 
+            $opts_container.find('input:first').prop('checked',true);
+
             // inverte a ordem das divs de uma maneira que deve ser muito eficiente! # SQN
-            $opts_container.children().each(function(i, li) {
-                $opts_container.prepend(li)
-            });
+            if (!graph_opt.no_reverse){
+                $opts_container.children().each(function(i, li) {
+                    $opts_container.prepend(li)
+                });
+            }
             $opts_container.find('input:checked').change();
             setTimeout(function() {
                 // clica no selecionado para disparar o draw do grafico

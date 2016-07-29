@@ -859,3 +859,4 @@ a.linkacao:hover .acao-txt-wrap {
     background-color: #000000;
     color: white;
 }
+.graph-title {text-align: center; font-size: 1.6em; padding-bottom: 0.5em}

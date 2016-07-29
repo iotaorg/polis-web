@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive" <?= ( is_null($js) ? '' : 'data-json="' . htmlentities($json) . '"' )?>>
 <table class="table txthover table-bordered table-condensed table-striped table-hover">
 <colgroup>
 <col style="width: 10%"/>
