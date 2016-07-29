@@ -22,7 +22,7 @@
         <? if ($acao->text_content->txt_titulo_mapa):?>
         <div class="mapa-acao-wrap">
             <h3 class="titulo-mapa"><?= $acao->text_content->txt_titulo_mapa?></h3>
-            <h4 class="descricao-mapa"><?= $acao->text_content->txt_descricao_mapa?></h4>
+            <h4 class="descricao-mapa"><?= str_replace('src=', 'data-src=', $acao->text_content->txt_descricao_mapa) ?></h4>
         </div>
         <?endif?>
 
@@ -69,10 +69,14 @@
                 <h3><?=$i->name?></h3>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <?if (!(@$i->variable_type == 'str')): ?>
+                <?$any_active=0?>
+                <?if (!(@$i->variable_type == 'str')): $any_active++?>
                 <li role="presentation" class="active"><a href="#visualizacao<?=$i->id?>" aria-controls="visualizacao<?=$i->id?>" role="tab" data-toggle="tab">Visualização</a></li>
                 <?endif?>
-                <li role="presentation" class="<?if ((@$i->variable_type == 'str')): ?>active<?endif?>" ><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
+                <?if ((@$i->variable_type == 'str' && $i->graph_type == 'pie')): $any_active++?>
+                <li role="presentation" class="active"><a href="#visualizacao<?=$i->id?>" aria-controls="visualizacao<?=$i->id?>" role="tab" data-toggle="tab">Visualização</a></li>
+                <?endif?>
+                <li role="presentation" class="<?if (!$any_active): ?>active<?endif?>" ><a href="#tabela<?=$i->id?>" aria-controls="tabela<?=$i->id?>" role="tab" data-toggle="tab">Tabela</a></li>
                 <?if ($i->descricao_formula ):?><li role="presentation"><a href="#formula<?=$i->id?>" aria-controls="formula<?=$i->id?>" role="tab" data-toggle="tab">Fórmula</a></li><?endif?>
                 <?if ($i->nossa_leitura):?><li role="presentation"><a href="#leitura<?=$i->id?>" aria-controls="leitura<?=$i->id?>" role="tab" data-toggle="tab">Nossa leitura</a></li><?endif?>
                 <li role="presentation"><a href="#dados<?=$i->id?>" aria-controls="dados<?=$i->id?>" role="tab" data-toggle="tab">Dados abertos</a></li>
@@ -80,13 +84,20 @@
 
               <!-- Tab panes -->
               <div class="tab-content tab-indicador loading" data-graph-type="<?=$i->graph_type?>" data-template="<?=htmlentities($acao->template_name)?>" data-variable-type="<?=$i->variable_type?>" data-id="<?=$i->id?>">
-                <?if (!(@$i->variable_type == 'str')): ?>
+                <?$any_active=0?>
+                <?if (!(@$i->variable_type == 'str')): $any_active++?>
                 <div role="tabpanel" class="tab-pane graph active " id="visualizacao<?=$i->id?>">
                     <h4 class="text-center">Carregando gráficos...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
                 </div>
                 <?endif?>
-                <div role="tabpanel" class="tab-pane table <?if ((@$i->variable_type == 'str')): ?>table-txt active<?endif?>" id="tabela<?=$i->id?>">
+                <?if ((@$i->variable_type == 'str') && ($i->graph_type == 'pie') ): $any_active++?>
+                <div role="tabpanel" class="tab-pane graph-pie active " id="visualizacao<?=$i->id?>">
+                    <h4 class="text-center">Carregando gráficos...</h4>
+                    <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
+                </div>
+                <?endif?>
+                <div role="tabpanel" class="tab-pane table <?if ((@$i->variable_type == 'str')): ?>table-txt <?endif?><?if(!$any_active):?>active<?endif?>" id="tabela<?=$i->id?>">
                     <h4 class="text-center">Carregando tabela...</h4>
                     <img class="tableload img-responsive" src="/static2/images/tableload.gif"/>
 

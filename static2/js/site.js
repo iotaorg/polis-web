@@ -157,10 +157,10 @@ jQuery(document).ready(function($) {
 
         },
         __colors = [
-            "#edc240","#afd8f8","#cb4b4b","#4da74d","#af70f1","#cdb466","#a9c1d4","#a23c3c","#6da36d",
-            "#7633bd","#ffe84c","#A9A9A9","#f35a5a","#5cc85c","#b14cff","#aa965b"
+            "#edc240", "#afd8f8", "#cb4b4b", "#4da74d", "#af70f1", "#cdb466", "#a9c1d4", "#a23c3c", "#6da36d",
+            "#7633bd", "#ffe84c", "#A9A9A9", "#f35a5a", "#5cc85c", "#b14cff", "#aa965b"
         ],
-        get_color_for = function(i){
+        get_color_for = function(i) {
             return __colors[i] || i;
         },
         _carrega_flot_graph = function($where, graph_opt) {
@@ -431,23 +431,27 @@ jQuery(document).ready(function($) {
 
         };
 
+    $("<div id='tooltip'></div>").css({
+        position: "absolute",
+        display: "none",
+        border: "1px solid #1c72ca",
+        "font-weight": "700",
+        padding: "3px",
+        color: "white",
+        "background-color": "#6fa7e0"
+    }).appendTo("body");
     $indicadores.each(function(i, e) {
-        $("<div id='tooltip'></div>").css({
-            position: "absolute",
-            display: "none",
-            border: "1px solid #1c72ca",
-            "font-weight": "700",
-            padding: "3px",
-            color: "white",
-            "background-color": "#6fa7e0"
-        }).appendTo("body");
 
         _carrega_tabela_indicador(e);
     })
 
     /* fim indicadores */
+});
 
-
-
-
+jQuery(window).load(function() {
+    setTimeout(function() {
+        jQuery('iframe[data-src]').each(function(i, e) {
+            jQuery(e).attr('src', jQuery(e).attr('data-src'));
+        });
+    }, 500);
 });
