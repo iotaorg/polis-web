@@ -8,7 +8,7 @@
 </colgroup>
 <thead>
 <tr>
-    <th>Município</th>
+    <th><?=$_GET['template_name'] == 'layout2' ? 'Unidade de Conservação' : 'Município'?></th>
     <? foreach ( $dados->headers as $h ): ?>
         <th title="<?=$h->name?>"><?=$h->v?></th>
     <?endforeach?>
