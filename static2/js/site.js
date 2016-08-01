@@ -295,7 +295,7 @@ jQuery(document).ready(function($) {
                                 threshold: 0.02,
                                 formatter: labelFormatter,
                                 background: {
-                                    opacity: 1
+                                    opacity: 0
                                 }
                             }
                         },
