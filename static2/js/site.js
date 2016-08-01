@@ -203,7 +203,8 @@ jQuery(document).ready(function($) {
                             indicator: mod_data.indicator
                         },
                         no_reverse: 1,
-                        use_title: 1
+                        use_title: 1,
+                        variable_colors: mod_data.variable_colors
                     });
 
                 }
@@ -233,6 +234,10 @@ jQuery(document).ready(function($) {
         labelFormatter = function(label, series) {
             return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
         },
+        fix_prefered_colors = function(color) {
+            if (color == '#E2F98E') color = '#ffc107';
+            return color;
+        },
         _graph_yearly = function($where, graph_opt) {
 
             id_seq++;
@@ -257,7 +262,8 @@ jQuery(document).ready(function($) {
                 if (!this.checked) return false;
 
                 var current_year = graph.data[this.value],
-                    headers_array = [];
+                    headers_array = [],
+                    prefer_colors=graph_opt.variable_colors[this.value];
 
                 if (graph_opt.use_title) {
                     $opts_container.parent().find('.graph-title').text($(this).parents('div.radio:first').attr('title'));
@@ -274,7 +280,7 @@ jQuery(document).ready(function($) {
                             [i, current_year[region.k] * 1]
                         ],
                         label: region.v,
-                        color: get_color_for(i)
+                        color: typeof prefer_colors[region.v] == 'string' ? fix_prefered_colors(prefer_colors[region.v]) : get_color_for(i)
                     });
 
                 });
