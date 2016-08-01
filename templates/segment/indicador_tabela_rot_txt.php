@@ -1,9 +1,10 @@
 <div class="table-responsive" <?= ( is_null($js) ? '' : 'data-json="' . htmlentities($json) . '"' )?>>
 <table class="table txthover table-bordered table-condensed table-striped table-hover">
 <colgroup>
-<col style="width: 10%"/>
+<?$col_size = $_GET['template_name'] == 'layout2' ? 25 : 10;?>
+<col style="width: <?=$col_size?>%"/>
     <? foreach ( $dados->headers as $h ): ?>
-        <col style="width: <?=90/sizeof($dados->headers)?>%"/>
+        <col style="width: <?=(100-$col_size)/sizeof($dados->headers)?>%"/>
     <?endforeach?>
 </colgroup>
 <thead>
