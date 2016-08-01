@@ -515,6 +515,11 @@ jQuery(document).ready(function($) {
     })
 
     /* fim indicadores */
+
+    $('li[role=presentation]').on('click', function(){
+        $('#tooltip').hide();
+    });
+
 });
 
 jQuery(window).load(function() {
