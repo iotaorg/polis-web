@@ -263,7 +263,8 @@ jQuery(document).ready(function($) {
 
                 var current_year = graph.data[this.value],
                     headers_array = [],
-                    prefer_colors=graph_opt.variable_colors[this.value];
+                    prefer_colors= graph_opt.variable_colors ? graph_opt.variable_colors[this.value] : 0;
+
 
                 if (graph_opt.use_title) {
                     $opts_container.parent().find('.graph-title').text($(this).parents('div.radio:first').attr('title'));
