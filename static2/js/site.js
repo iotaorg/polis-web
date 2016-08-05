@@ -219,7 +219,26 @@ jQuery(document).ready(function($) {
             "#7633bd", "#ffe84c", "#A9A9A9", "#f35a5a", "#5cc85c", "#b14cff", "#aa965b", "#ef58a2", "#6691b8",
             "#d1370d", "#455d2c", "#a30540", "#53776e"
         ],
-        get_color_for = function(i) {
+        __prefered_colors = {
+            351: '#cdb466',
+            35054: '#a9c1d4',
+            35063: '#a23c3c',
+            3506359: '#af70f1',
+            3518701: '#6da36d',
+            3548500: '#edc240',
+            3531100: '#7633bd',
+            3522109: '#ffe84c',
+            3551009: '#cb4b4b',
+            3537602: '#A9A9A9',
+            3513504: '#f35a5a',
+            3555406: '#4da74d',
+            3510500: '#5cc85c',
+            3520400: '#afd8f8',
+            3550704: '#ef58a2',
+            3541000: '#6691b8',
+        },
+        get_color_for = function(i, pref_id) {
+            if (typeof __prefered_colors[pref_id] == 'string') return __prefered_colors[pref_id];
             return __colors[i] || i;
         },
         _carrega_flot_graph = function($where, graph_opt) {
@@ -263,7 +282,7 @@ jQuery(document).ready(function($) {
 
                 var current_year = graph.data[this.value],
                     headers_array = [],
-                    prefer_colors= graph_opt.variable_colors ? graph_opt.variable_colors[this.value] : 0;
+                    prefer_colors = graph_opt.variable_colors ? graph_opt.variable_colors[this.value] : 0;
 
 
                 if (graph_opt.use_title) {
@@ -281,7 +300,7 @@ jQuery(document).ready(function($) {
                             [i, current_year[region.k] * 1]
                         ],
                         label: region.v,
-                        color: typeof prefer_colors[region.v] == 'string' ? fix_prefered_colors(prefer_colors[region.v]) : get_color_for(i)
+                        color: typeof prefer_colors[region.v] == 'string' ? fix_prefered_colors(prefer_colors[region.v]) : get_color_for(i, region.k)
                     });
 
                 });
@@ -410,7 +429,7 @@ jQuery(document).ready(function($) {
             });
             var i = 0;
             $.each(datasets, function(key, val) {
-                val.color = get_color_for(i);
+                val.color = get_color_for(i, key);
                 ++i;
             });
 
@@ -523,7 +542,7 @@ jQuery(document).ready(function($) {
 
     /* fim indicadores */
 
-    $('li[role=presentation]').on('click', function(){
+    $('li[role=presentation]').on('click', function() {
         $('#tooltip').hide();
     });
 
