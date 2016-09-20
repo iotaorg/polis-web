@@ -109,11 +109,11 @@
 
                         <dl class="dl-horizontal">
                             <? $download = '/polis/' . ($i->variable_type =='str' ? 'indicador_tabela_rot_txt' :'indicador_tabela_rot_regiao') . '/' .$i->id ?>
-                            <dt>Dados tabulados:</dt><dd> <a class="btn btn-default" href="<?=$download?>?download=csv">CSV</a> <a class="btn btn-default" href="<?=$download?>?download=xls">XLS</a> <a class="btn btn-default" target="_new" href="<?=$download?>">JSON</a> </dd>
+                            <dt>Dados tabulados:</dt><dd> <a class="btn btn-default" href="<?=$download?>?download=xls">XLS</a> <a class="btn btn-default" href="<?=$download?>?download=csv">CSV</a> <a class="btn btn-default" target="_new" href="<?=$download?>">JSON</a> </dd>
                             <? $download = '/api/download-indicators?indicator_id='.$i->id ?>
-                            <dt>Resultados por região:</dt><dd> <a class="btn btn-default" href="<?=$download?>&download=csv">CSV</a> <a class="btn btn-default" href="<?=$download?>&download=xls">XLS</a> <a class="btn btn-default" target="_new" href="<?=$download?>">JSON</a></dd>
+                            <dt>Resultados por região:</dt><dd> <a class="btn btn-default" href="<?=$download?>&download=xls">XLS</a> <a class="btn btn-default" href="<?=$download?>&download=csv">CSV</a> <a class="btn btn-default" target="_new" href="<?=$download?>">JSON</a></dd>
                             <? $download = '/api/download-variables?indicator_id='.$i->id ?>
-                            <dt>Linhas das variáveis:</dt><dd> <a class="btn btn-default" href="<?=$download?>&download=csv">CSV</a> <a class="btn btn-default" href="<?=$download?>&download=xls">XLS</a> <a class="btn btn-default" target="_new" href="<?=$download?>">JSON</a></dd>
+                            <dt>Linhas das variáveis:</dt><dd> <a class="btn btn-default" href="<?=$download?>&download=xls">XLS</a> <a class="btn btn-default" href="<?=$download?>&download=csv">CSV</a> <a class="btn btn-default" target="_new" href="<?=$download?>">JSON</a></dd>
                         </dl>
                     </div>
 
