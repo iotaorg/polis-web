@@ -436,10 +436,10 @@ jQuery(document).ready(function($) {
             // insert checkboxes
             var $opts_container = $where.append('<div style="float:right; font-size: 0.8em" class="a  col-xs-12 col-sm-2 form-group"></div>').find('.a');
 
-            $.each(datasets, function(key, val) {
-                var checked = /Litoral Sustentável|Baixada Santista|Litoral Norte/.test(val.label) ? '' : "checked='checked'";
-                $opts_container.append("<div class='checkbox'><label><input type='checkbox' name='" + key +
-                    "' " + checked + "></input>" + val.label + "</label></div>");
+            $.each(graph.headers, function(key, val) {
+                var checked = /Litoral Sustentável|Baixada Santista|Litoral Norte/.test(val.v) ? '' : "checked='checked'";
+                $opts_container.append("<div class='checkbox'><label><input type='checkbox' name='" + val.k +
+                    "' " + checked + "></input>" + val.v + "</label></div>");
             });
 
             var $graph_div = $opts_container.parent().append('<div style="float:left; min-height: 500px" class="b col-xs-12 col-sm-10"></div>').find('.b');
