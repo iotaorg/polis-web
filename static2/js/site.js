@@ -215,7 +215,7 @@ jQuery(document).ready(function($) {
 
         },
         __colors = [
-            "#edc240", "#afd8f8", "#cb4b4b", "#4da74d", "#af70f1", "#cdb466", "#a9c1d4", "#a23c3c", "#6da36d",
+            "#edc240", "#afd8f8", "#cb4b4b", "#FFA500", "#af70f1", "#cdb466", "#a9c1d4", "#a23c3c", "#6da36d",
             "#7633bd", "#ffe84c", "#A9A9A9", "#f35a5a", "#5cc85c", "#b14cff", "#aa965b", "#ef58a2", "#6691b8",
             "#d1370d", "#455d2c", "#a30540", "#53776e"
         ],
@@ -231,7 +231,7 @@ jQuery(document).ready(function($) {
             3551009: '#cb4b4b',
             3537602: '#A9A9A9',
             3513504: '#f35a5a',
-            3555406: '#4da74d',
+            3555406: '#FFA500',
             3510500: '#5cc85c',
             3520400: '#afd8f8',
             3550704: '#ef58a2',
