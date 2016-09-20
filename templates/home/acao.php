@@ -52,7 +52,9 @@
 
         <div class="row">
             <? if (!empty($indicadores)): ?>
-            <h2>Indicadores</h2>
+            <div class="col-xs-12">
+                <h2>Indicadores</h2>
+            </div>
             <? foreach ( $indicadores as $i ): ?>
                 <noscript>
                     <h3><?=$i->name?></h3>
@@ -124,9 +126,11 @@
             <?endif?>
 
             <? if ($acao->text_content->txt_glossario):?>
-            <h2>Glossário</h2>
-            <div class="acao-glosario-wrap">
-                <?=$acao->text_content->txt_glossario?>
+                <div class="col-xs-12">
+                    <h2>Glossário</h2>
+                    <div class="acao-glosario-wrap">
+                        <?=$acao->text_content->txt_glossario?>
+                    </div>
             </div>
             <?endif?>
         </div>
