@@ -92,7 +92,7 @@
                     <?php foreach (  $acoes as $a ): ?>
                     <div class="acao-wrap col-lg-3 col-md-3 col-sm-4 col-xs-12 acoes-itens" id="acao<?=$a->id?>">
                         <div class="acao-sub-wrap"><a class="linkacao" href="/acao/<?= $a->name_url?>">
-                            <div class="acao-img-wrap" style="background-image: url(<?= $a->text_content->url_rede_low?>); background-size:cover; height: 255px">
+                            <div class="acao-img-wrap" style="background-image: url(<?= @str_replace('http://', 'https://', $a->text_content->url_rede_low )?>); background-size:cover; height: 255px">
                             </div>
                             <div class="acaotxt">
                                 <div class="acao-txt-wrap">
