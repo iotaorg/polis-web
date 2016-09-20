@@ -353,6 +353,7 @@ float: right;
 margin: -10px 0px 0 0;
 display: block;
 }
+.container h2{color: #6FA7E0; }
 .acoes-header .container h2{float: left; display: block; color: #6FA7E0; margin: 15px 0 0}
 .acoes-header:after{
 width: 100%; display: block; clear: both;
@@ -828,6 +829,18 @@ a.linkacao:hover .acao-txt-wrap {
 .jsonly h3 {padding-bottom: 10px; margin: 0;}
 .jsonly {margin-bottom: 10px}
 .acao-content-wrap h2 {padding: 0; clear:both}
+
+h3:before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #eee;
+    margin: 0.1em;
+    border-radius: 15px;
+    vertical-align: text-top;
+
+}
 
 .tab-content-bar .flot-x-axis .flot-tick-label {
     white-space: nowrap;

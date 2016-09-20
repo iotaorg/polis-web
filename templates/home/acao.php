@@ -21,8 +21,8 @@
 
         <? if ($acao->text_content->txt_titulo_mapa):?>
         <div class="mapa-acao-wrap">
-            <h3 class="titulo-mapa"><?= $acao->text_content->txt_titulo_mapa?></h3>
-            <h4 class="descricao-mapa"><?= str_replace('src=', 'data-src=', $acao->text_content->txt_descricao_mapa) ?></h4>
+            <h2><?= $acao->text_content->txt_titulo_mapa?></h2>
+            <p><?= str_replace('src=', 'data-src=', $acao->text_content->txt_descricao_mapa) ?></p>
         </div>
         <?endif?>
 
@@ -57,7 +57,7 @@
             </div>
             <? foreach ( $indicadores as $i ): ?>
                 <noscript>
-                    <h3><?=$i->name?></h3>
+                    <h2><?=$i->name?></h2>
                     <dl>
                         <dt>Descrição da Fórmula</dt><dd> <?=$i->descricao_formula?></dd>
                         <dt>Nossa leitura</dt><dd> <?=$i->nossa_leitura?></dd>
@@ -67,7 +67,7 @@
                 </noscript>
 
                 <div class="jsonly col-xs-12">
-                    <h3><?=$i->name?></h3>
+                  <h3><?=$i->name?></h3>
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
                     <?$any_active=0?>
