@@ -22,7 +22,7 @@
         <? if ($acao->text_content->txt_titulo_mapa):?>
         <div class="mapa-acao-wrap">
             <h2><?= $acao->text_content->txt_titulo_mapa?></h2>
-            <p><?= str_replace('src=', 'data-src=', $acao->text_content->txt_descricao_mapa) ?></p>
+            <p class="pad"><?= str_replace('src=', 'data-src=', $acao->text_content->txt_descricao_mapa) ?></p>
         </div>
         <?endif?>
 

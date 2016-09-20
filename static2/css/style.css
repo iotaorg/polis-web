@@ -839,8 +839,8 @@ h3:before {
     margin: 0.1em;
     border-radius: 15px;
     vertical-align: text-top;
-
 }
+p.pad {padding: 15px;}
 
 .tab-content-bar .flot-x-axis .flot-tick-label {
     white-space: nowrap;
