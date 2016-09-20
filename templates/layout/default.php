@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head><?$version='146'?>
+    <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
+    <link href='https://netdna.bootstrapcdn.com' rel='preconnect' crossorigin>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +14,7 @@
     <!-- Bootstrap Core CSS
     <link href="/static2/css/bootstrap.min.css" rel="stylesheet">
 -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="/static2/css/font-awesome.css?v=1" rel="stylesheet">
