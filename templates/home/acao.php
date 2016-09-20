@@ -105,7 +105,7 @@
                     <?if ($i->nossa_leitura):?><div role="tabpanel" class="tab-pane" id="leitura<?=$i->id?>"> <?=$i->nossa_leitura?></div><?endif?>
 
                     <div role="tabpanel" class="tab-pane pane-opendata" id="dados<?=$i->id?>">
-                        <h4>Você pode consumir este indicador nos seguintes formatos:</h4>
+                        <h4>Você pode baixar este indicador nos seguintes formatos:</h4>
 
                         <dl class="dl-horizontal">
                             <? $download = '/polis/' . ($i->variable_type =='str' ? 'indicador_tabela_rot_txt' :'indicador_tabela_rot_regiao') . '/' .$i->id ?>
