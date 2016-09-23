@@ -148,7 +148,7 @@
             </div>
 
             <div class="apoio-wrap pull-right col-md-3 col-sm-5 col-xs-12 text-right logos-alinhados" style="padding: 0;">
-                <img src="/static2/css/images/logos-juntos.svg" style="height: 270px"/>
+                <img src="/static2/css/images/logos-juntos.png" style="height: 270px"/>
             </div>
         </div>
     </div>
