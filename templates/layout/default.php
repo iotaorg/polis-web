@@ -67,10 +67,10 @@
 <?endforeach?>
 <?php $this->end();?>
         <li class="page-scroll">
-            <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
+            <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/" target="_blank">Agendas</a>
         </li>
         <li class="page-scroll">
-            <a href="http://litoralsustentavel.org.br/contato/">Contato</a>
+            <a href="http://litoralsustentavel.org.br/contato/" target="_blank">Contato</a>
         </li>
     </ul>
     <ul class="menu menu-social">
@@ -100,10 +100,10 @@
         <ul>
             <?php $this->block('menu');?>
             <li class="page-scroll">
-                <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/">Agendas</a>
+                <a href="http://litoralsustentavel.org.br/agenda-de-desenvolvimento-sustentavel/" target="_blank">Agendas</a>
             </li>
             <li class="page-scroll">
-                <a href="http://litoralsustentavel.org.br/contato/">Contato</a>
+                <a href="http://litoralsustentavel.org.br/contato/" target="_blank">Contato</a>
             </li>
         </ul>
     </div>
@@ -163,10 +163,10 @@
             </div>
 
             <div class="cc-wrap col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                Plataforma de Indicadores <a title="Ir para Iota" target="_blank" href="http://eokoe.github.io/Iota/">
+                <small>Plataforma de Indicadores <a title="Ir para Iota" target="_blank" href="http://eokoe.github.io/Iota/">
                     <img style="height: 30px; margin-top: -8px" alt="Logo do sistema IOTA" src="/static2/css/images/iota-negativo.svg" >
                 </a><br/>
-                Alguns direitos reservados <img src="/static2/css/images/cc.png">
+                Alguns direitos reservados <img src="/static2/css/images/cc.png"></small>
             </div>
         </div>
     </div>
