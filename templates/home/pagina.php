@@ -15,7 +15,7 @@
 <div class="content-pagina">
     <div class="container">
 
-    <h1><?php $this->begin('title');?>  Página <?=$pagina->title?><?php $this->end();?></h1>
+    <h1><?php $this->begin('title');?> <?=$pagina->title?><?php $this->end();?></h1>
 
     <?=$pagina->content?>
 
