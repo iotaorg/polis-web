@@ -113,7 +113,7 @@
 <footer class="footer-principal">
     <div class="container">
         <div class="row">
-            <div class="mapa-do-site col-md-4" style="background-color: rgba(255,255,255,0.1);padding: 9px;">
+            <div class="mapa-do-site col-md-4" style="padding: 9px;">
                 <div class="mapa-s-title">
                     <h2>MAPA DO SITE</h2>
                 </div>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="apoio-wrap pull-right col-md-3 col-sm-5 col-xs-12 text-right logos-alinhados" style="background-color: rgba(255,255,255,0.1);padding: 0;">
+            <div class="apoio-wrap pull-right col-md-3 col-sm-5 col-xs-12 text-right logos-alinhados" style="padding: 0;">
                 <img src="http://i.imgur.com/PNrUVRC.png" style="height: 270px"/>
             </div>
         </div>
