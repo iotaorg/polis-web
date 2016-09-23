@@ -146,13 +146,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="apoio-wrap col-md-5 col-sm-7 col-xs-12" style="background-color: rgba(255,255,255,0.1);padding: 82px;text-align: center;min-height: 269px;">
-                <a title="Ir para Litoral Sustentavel" target="_blank" class="a-block" href="http://litoralsustentavel.org.br/" >
-                    <img alt="Logo Observatório Litoral Sustentável" src="/static2/css/images/logo-obs-preto.png" style="width: 325px;max-width:100%"/>
-                </a>
-            </div>
-            <div class="apoio-wrap col-md-3 col-sm-5 col-xs-12 text-right logos-alinhados" style="background-color: rgba(255,255,255,0.1);padding: 0;">
-                <img src="/static2/css/images/logos-juntos.jpg" style="height: 270px"/>
+
+            <div class="apoio-wrap pull-right col-md-3 col-sm-5 col-xs-12 text-right logos-alinhados" style="background-color: rgba(255,255,255,0.1);padding: 0;">
+                <img src="http://i.imgur.com/PNrUVRC.png" style="height: 270px"/>
             </div>
         </div>
     </div>
